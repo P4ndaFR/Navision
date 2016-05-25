@@ -23,7 +23,7 @@ import dijkstra.model.Vertex;
 public class main {
 	private static List<Vertex> nodes;
 	  private static List<Edge> edges;
-	public static void main(String[] args) {
+	  public static void main(String[] args) {
 		for(int i = 0; i < args.length; i++) {
             System.out.println(args[i]);
         }
@@ -56,7 +56,7 @@ public class main {
 	    } catch ( ClassNotFoundException e ) {
 	        /* Gérer les éventuelles erreurs ici. */
 	    }
-	    String url = "jdbc:mysql://home.apremel.fr:3306/Navision?";
+	    String url = "jdbc:mysql://localhost:3306/Navision?useSSL=true";
 	    String utilisateur = "Navision";
 	    String motDePasse = "Navision";
 	    Connection connexion = null;
