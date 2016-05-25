@@ -6,7 +6,4 @@
 	$points = get_points();
 	$liaisons = get_liaisons();
 
-	passthru("java -jar Navision.jar 11 12");
-	passthru("java -jar Navision.jar 11");
-
 ?>
