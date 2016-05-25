@@ -1,4 +1,4 @@
-package de.vogella.algorithms.dijkstra.engine;
+package dijkstra.engine;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,13 +9,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import de.vogella.algorithms.dijkstra.model.Edge;
-import de.vogella.algorithms.dijkstra.model.Graph;
-import de.vogella.algorithms.dijkstra.model.Vertex;
+import dijkstra.model.Edge;
+import dijkstra.model.Graph;
+import dijkstra.model.Vertex;
 
 public class DijkstraAlgorithm {
 
-  private final List<Vertex> nodes;
+  @SuppressWarnings("unused")
+private final List<Vertex> nodes;
   private final List<Edge> edges;
   private Set<Vertex> settledNodes;
   private Set<Vertex> unSettledNodes;
