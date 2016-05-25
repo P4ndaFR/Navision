@@ -1,4 +1,4 @@
-package de.vogella.algorithms.dijkstra.model;
+package dijkstra.model;
 
 public class Vertex {
   final private String id;
