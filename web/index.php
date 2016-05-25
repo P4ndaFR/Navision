@@ -16,7 +16,17 @@
 	<!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
-	
-	<h1>INDEX</h1>
+	<script>  $( document ).ready(function(){  $(".button-collapse").sideNav(); }) </script>
+	<nav>
+		<div class="nav-wrapper">
+            <a href="" class="brand-logo center">Navision</a>
+			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="">Où suis-je ?</a></li>
+                <li><a href="">Points d'intérêts</a></li>
+                <li><a href="">Plan de l'école</a></li>
+            </ul>
+		</div>
+	</nav>
 </body>
 </html>
