@@ -20,8 +20,26 @@
 	<nav>
 		<div class="nav-wrapper">
             <a href="" class="brand-logo center">Navision</a>
-			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 		</div>
 	</nav>
+	<div class="row">
+    <form class="col s12 m12 l12 offset-m2 offset-l4">
+      <div class="row">
+        <div class="input-field col s12 m8 l4">
+          <input placeholder="login" id="user" type="text" class="validate">
+          <label for="user">User</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m8 l4">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+      <i class="material-icons right">send</i>
+      </button>
+    </form>
+  </div>
 </body>
 </html>
