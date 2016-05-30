@@ -16,17 +16,30 @@
 	<!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+	<script>  $( document ).ready(function(){  $(".button-collapse").sideNav(); }) </script>
 	<nav>
 		<div class="nav-wrapper">
             <a href="" class="brand-logo center">Navision</a>
-			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul class="side-nav" id="mobile-demo">
-                <li><a href="">Où suis-je ?</a></li>
-                <li><a href="">Points d'intérêts</a></li>
-                <li><a href="">Plan de l'école</a></li>
-            </ul>
 		</div>
 	</nav>
+	<div class="row">
+    <form class="col s12 m12 l12 offset-m2 offset-l4" method="post">
+      <div class="row">
+        <div class="input-field col s12 m8 l4">
+          <input placeholder="login" name="user" id="user" type="text">
+          <label for="user">User</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m8 l4">
+          <input name="password" id="password" type="password">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+      <i class="material-icons right">send</i>
+      </button>
+    </form>
+  </div>
 </body>
 </html>
