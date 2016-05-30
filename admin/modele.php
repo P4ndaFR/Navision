@@ -13,7 +13,7 @@
 		$liaisons = $req->fetchAll();
 		return $liaisons;
 	}
-	function get_user(){
+	function get_users(){
 		global $bdd;
 		$req = $bdd->prepare('SELECT `user`,`password` FROM `ADMIN`;');
 		$req->execute();

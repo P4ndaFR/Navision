@@ -23,16 +23,16 @@
 		</div>
 	</nav>
 	<div class="row">
-    <form class="col s12 m12 l12 offset-m2 offset-l4">
+    <form class="col s12 m12 l12 offset-m2 offset-l4" method="post">
       <div class="row">
         <div class="input-field col s12 m8 l4">
-          <input placeholder="login" id="user" type="text" class="validate">
+          <input placeholder="login" name="user" id="user" type="text">
           <label for="user">User</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12 m8 l4">
-          <input id="password" type="password" class="validate">
+          <input name="password" id="password" type="password">
           <label for="password">Password</label>
         </div>
       </div>
