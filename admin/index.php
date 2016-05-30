@@ -10,6 +10,4 @@
 	if($_SESSION['login'])include_once 'vue/admin.php';
 	else include_once 'vue/vue.php';
 ?>
-<pre>
-	<?php print_r($_SESSION)?>
-</pre>
+		<?php //print_r($_SESSION)?>

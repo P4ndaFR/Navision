@@ -15,9 +15,23 @@
 	}
 	function get_users(){
 		global $bdd;
-		$req = $bdd->prepare('SELECT `user`,`password` FROM `ADMIN`;');
+		$req = $bdd->prepare('SELECT `USER`,`PASSWORD` FROM `ADMINISTRATEUR`;');
 		$req->execute();
 		$user = $req->fetchAll();
 		return $user;
+	}
+	function get_bats(){
+		global $bdd;
+		$req = $bdd->prepare('SELECT NOM_BAT,CODE_BAT FROM BATIMENTS;');
+		$req->execute();
+		$bats = $req->fetchALL();
+		return $bats;
+	}
+	function get_plans($bat){
+		global $bdd;
+		$req = $bdd->prepare('SELECT URL_PLAN,NOM,NOM_BAT FROM PLANS,BATIMENTS WHERE BATIMENTS.CODE_BAT = PLANS.CODE_BAT && NOM_BAT = :nom_bat;');
+		$req->execute(array('nom_bat' => $bat));
+		$plans = $req->fetchALL();
+		return $plans;
 	}
 ?>

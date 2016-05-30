@@ -23,5 +23,37 @@
 			<a href="./logout.php" class="waves-effect waves-light btn right">logout</a>
 		</div>
 	</nav>
+
+	<form>
+		<div class="row">
+			<div class="input-field col s4 offset-s4">
+				<select name="etage" id="id">
+					<?php
+						foreach(get_bats() as $bat){
+							echo "<optgroup label=\"".$bat['NOM_BAT']."\">";
+							echo $bat['NOM_BAT'];
+							foreach(get_plans($bat['NOM_BAT']) as $plan){
+								echo "<option value=\"".$plan['NOM']."\">".$plan['NOM']."</option>";
+							}
+							echo "</optgroup>";
+						}
+					?>
+				</select>
+				<label>Choisissez un étage</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s2 offset-s5">
+				<button class="btn waves-effect waves-light" type="submit" name="action" value="plan">Submit
+					<i class="material-icons right">send</i>
+				</button>
+			</div>
+		</div>
+	</form>
+	<script>
+	$(document).ready(function() {
+        	$('select').material_select();
+	});
+	</script>
 </body>
 </html>
