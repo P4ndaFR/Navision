@@ -8,7 +8,7 @@
         </div>
         <div class="row">
             <div class="center">
-                <a class="waves-effect waves-light btn-floating btn-large red center" href="index.php?page='scan'"><i class="material-icons">photo_camera</i></a>
+                <a class="waves-effect waves-light btn-floating btn-large red center" href='index.php?page=scan'><i class="material-icons">photo_camera</i></a>
             </div>
         </div>
 </div>

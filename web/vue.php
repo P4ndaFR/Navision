@@ -28,7 +28,7 @@
             <ul class="side-nav" id="mobile-demo">
                 <li><a href="index.php">Où suis-je ?</a></li>
                 <li><a href="index.php">Points d'intérêts</a></li>
-                <li><a href="index.php">Plan de l'école</a></li>
+                <li><a href="index.php?page=etage">Plan de l'école</a></li>
             </ul>
 		</div>
 	</nav>

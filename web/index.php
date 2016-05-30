@@ -1,6 +1,6 @@
 <?php
 	// Initialisation
-	$bdd = new PDO('mysql:host=localhost;dbname=Navision;charset=utf8', 'Navision', 'Navision');
+	$bdd = new PDO('mysql:host=home.apremel.fr;dbname=Navision;charset=utf8', 'Navision', 'Navision');
 
 	include_once('modele.php');
 	$points = get_points();
@@ -8,9 +8,12 @@
 
 	include_once('dijkstra.php');
 	include_once('vue.php');
-	
-	switch(isset($_GET['page']))
+
+	switch($_GET['page'])
 	{
+		case 'etage':
+			include_once('etage.php');
+		break;
 		case 'scan':
 			include_once('scan.php');
 		break;
