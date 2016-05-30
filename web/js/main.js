@@ -8,7 +8,6 @@ $(document).ready(function(){
         },
         function(error){
             $('#read_error').html(error);
-
         },
         function(videoError){
             $('#read_videoError').html(videoError);

@@ -1,7 +1,5 @@
 <div class="container">
-        <div class="row">
-            <h1 class="center red-text">Navision</h1>
-        </div>
+        <img src=""> 
         <div class="row">
             <div class = "col"><p>Bienvenue sur l'application de navigation des portes ouvertes de l'ISEN Brest</p></div>
             <div class="col">Veuillez scanner le qr code le plus proche de vous afin que nous puissons vous localiser</p></div>

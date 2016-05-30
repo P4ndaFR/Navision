@@ -26,9 +26,9 @@
             <a href="" class="brand-logo center"><i class="material-icons">navigation</i></a>
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="side-nav" id="mobile-demo">
-                <li><a href="">Où suis-je ?</a></li>
-                <li><a href="">Points d'intérêts</a></li>
-                <li><a href="">Plan de l'école</a></li>
+                <li><a href="index.php">Où suis-je ?</a></li>
+                <li><a href="index.php">Points d'intérêts</a></li>
+                <li><a href="index.php">Plan de l'école</a></li>
             </ul>
 		</div>
 	</nav>

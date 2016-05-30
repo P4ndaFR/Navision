@@ -3,17 +3,19 @@
 	$bdd = new PDO('mysql:host=localhost;dbname=Navision;charset=utf8', 'Navision', 'Navision');
 
 	include_once('modele.php');
-	include_once('dijkstra.php');
 	$points = get_points();
 	$liaisons = get_liaisons();
+
+	include_once('dijkstra.php');
 	include_once('vue.php');
-	if($_GET['page'] == 1)
+	
+	switch(isset($_GET['page']))
 	{
-		include_once('scan.php');
+		case 'scan':
+			include_once('scan.php');
+		break;
+		default:
+			include_once('accueil.php');
+		break;
 	}
-	else
-	{
-		include_once('vue.php');
-	}
-	//include_once('scan.php');
 ?>
