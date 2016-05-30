@@ -1,12 +1,18 @@
+<script type="text/javascript" src="js/etage.js"></script>
 <div class="container">
-        <img src=""> 
         <div class="row">
-            <div class = "col"><p>Bienvenue sur l'application de navigation des portes ouvertes de l'ISEN Brest</p></div>
-            <div class="col">Veuillez scanner le qr code le plus proche de vous afin que nous puissons vous localiser</p></div>
-        </div>
-        <div class="row">
-            <div class="center">
-                <a class="waves-effect waves-light btn-floating btn-large red center" href="index.php?page='scan'"><i class="material-icons">photo_camera</i></a>
+            <div class="col m12">
+                <div class="card">
+                    <div class="card-content">
+                        <p>Plan du 1er étage</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="">Retourner à la sélection des étages</a>
+                    </div>
+                    <div class="card-image">
+                        <img class="responsive-img" src="data/etage1.png">
+                    </div>
+                </div>
             </div>
         </div>
 </div>
