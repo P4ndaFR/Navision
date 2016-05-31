@@ -31,8 +31,9 @@
 	</script>
 	<nav>
 		<div class="nav-wrapper">
-			<a href="" class="brand-logo center">Navision</a>
+			<a href="./" class="brand-logo center">Navision</a>
 			<a href="./logout.php" class="waves-effect waves-light btn right">logout</a>
+			<a href="./?etage=<?php echo $_GET['etage']?>&action=plan" class="waves-effect waes-light btn left">previous</a>
 		</div>
 	</nav>
 		<div class="row">

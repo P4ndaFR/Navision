@@ -19,7 +19,8 @@
 	<script>  $( document ).ready(function(){  $(".button-collapse").sideNav(); }) </script>
 	<nav>
 		<div class="nav-wrapper">
-			<a href="" class="brand-logo center">Navision</a>
+			<a href="./" class="waves-effect waves-light btn left">previous</a>
+			<a href="./" class="brand-logo center">Navision</a>
 			<a href="./logout.php" class="waves-effect waves-light btn right">logout</a>
 		</div>
 	</nav>
