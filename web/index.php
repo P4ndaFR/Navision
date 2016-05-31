@@ -9,16 +9,21 @@
 	include_once('dijkstra.php');
 	include_once('vue.php');
 
-	switch($_GET['page'])
+	if(isset($_GET['page']))
 	{
-		case 'etage':
-			include_once('etage.php');
-		break;
-		case 'scan':
-			include_once('scan.php');
-		break;
-		default:
-			include_once('accueil.php');
-		break;
+		switch($_GET['page'])
+		{
+
+			case 'etage':
+				include_once('etage.php');
+			break;
+			case 'scan':
+				include_once('scan.php');
+			break;
+		}
+	}
+	else
+	{
+		include_once('accueil.php');
 	}
 ?>
