@@ -17,24 +17,48 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
 	<script>  $( document ).ready(function(){  $(".button-collapse").sideNav(); }) </script>
+	<script type="text/javascript">
+	function showRadio() {
+		var n = document.form.btnr.length;
+		for(i=1;i<=n;i++) {
+			if(document.getElementById('choix'+i).checked == true) {
+				document.getElementById('D'+i).style.display = "block";
+			} else {
+				document.getElementById('D'+i).style.display = "none";
+			}
+		}
+	  }
+	</script>
 	<nav>
 		<div class="nav-wrapper">
 			<a href="" class="brand-logo center">Navision</a>
 			<a href="./logout.php" class="waves-effect waves-light btn right">logout</a>
 		</div>
-		<div class="row">
+		<div class="row black-text">
 			<div class="col s8">
+				<p class="col s12">salut<p>
 			</div>
 			<div class="col s4">
-				<div class="row">
-					<a href="./?etage=<?php echo $_GET['etage']?>&action=add" class="col waves-effect waves-light btn-large s12"><i class="material-icons left">location_on</i>Ajouter un Point</a>
-				</div>
-				<div class="row">
-					<a href="./?etage=<?php echo $_GET['etage']?>&action=modify" class="col waves-effect waves-light btn-large s12"><i class="material-icons left">mode_edit</i>Modifier un Point</a>
-				</div>
-				<div class="row">
-					<a href="./?etage=<?php echo $_GET['etage']?>&action=remove" class="col waves-effect waves-light btn-large s12"><i class="material-icons left">location_off</i>Supprimer un Point</a>
-				</div>
+				<form name="form">
+					<div class="row">
+						<p class="col s6">
+						      <input class="with-gap" name="btnr" type="radio" id="choix1" onclick="showRadio()"/>
+						      <label for="choix1">Point d'intérêt</label>
+						</p>
+						<p class="col s6">
+					 		<input class="with-gap" name="btnr" type="radio" id="choix2" onclick="showRadio()"/>
+							<label for="choix2">Point de routage</label>
+						</p>
+					</div>
+					<div class="row">
+						<div id="D1" class="col s6" style="display:none">
+							<p>recoucou</p>
+						</div>
+						<div id="D2" class="col s6" style="display:none">
+							<p>coucou</p>
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
 	</nav>

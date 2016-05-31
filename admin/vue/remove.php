@@ -26,15 +26,6 @@
 			<div class="col s8">
 			</div>
 			<div class="col s4">
-				<div class="row">
-					<a href="./?etage=<?php echo $_GET['etage']?>&action=add" class="col waves-effect waves-light btn-large s12"><i class="material-icons left">location_on</i>Ajouter un Point</a>
-				</div>
-				<div class="row">
-					<a href="./?etage=<?php echo $_GET['etage']?>&action=modify" class="col waves-effect waves-light btn-large s12"><i class="material-icons left">mode_edit</i>Modifier un Point</a>
-				</div>
-				<div class="row">
-					<a href="./?etage=<?php echo $_GET['etage']?>&action=remove" class="col waves-effect waves-light btn-large s12"><i class="material-icons left">location_off</i>Supprimer un Point</a>
-				</div>
 			</div>
 		</div>
 	</nav>
