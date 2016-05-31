@@ -1,7 +1,7 @@
 <?php
 	function get_points(){
 		global $bdd;
-		$req = $bdd->prepare('SELECT `ID_PT`,`CODE_BAT`,`X`,`Y`,`ETAGE`,`NOM`,`DESCRIPTION` FROM POINT;');
+		$req = $bdd->prepare('SELECT `CODE_BAT`,`NIVEAU`,`ID_PT`,`X`,`Y`,`NOM`,`DESCRIPTION`,`QR_CODE`,`URL_QRCODE` FROM `POINT`;');
 		$req->execute();
 		$points = $req->fetchAll();
 		return $points;
@@ -29,9 +29,14 @@
 	}
 	function get_plans($bat){
 		global $bdd;
-		$req = $bdd->prepare('SELECT URL_PLAN,NOM,NOM_BAT FROM PLANS,BATIMENTS WHERE BATIMENTS.CODE_BAT = PLANS.CODE_BAT && NOM_BAT = :nom_bat;');
+		$req = $bdd->prepare('SELECT `CODE_BAT`,`NIVEAU`,`NOM`,`URL_PLAN` FROM `ETAGE`,BATIMENTS WHERE BATIMENTS.CODE_BAT = PLANS.CODE_BAT && NOM_BAT = :nom_bat;');
 		$req->execute(array('nom_bat' => $bat));
 		$plans = $req->fetchALL();
 		return $plans;
 	}
+/*	function add_point($X,$Y){
+		global $bdd;
+		$req = $bdd->prepare('INSERT INTO `Navision`.`POINT` (`ID_PT`, `CODE_BAT`, `URL_PLAN`, `X`, `Y`, `ETAGE`, `NOM`, `DESCRIPTION`, `QR_CODE`, `URL_QRCODE`) VALUES ('', '', '', ':X', ':Y', '', NULL, NULL, NULL, NULL);');
+		$req->execute(array('X' => $X,'Y' => $Y));
+	}*/
 ?>

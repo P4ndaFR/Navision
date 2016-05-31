@@ -76,20 +76,34 @@
 									<label for="description">Description du point d'intérêt</label>
 								</div>
 							</div>
+							<div class="row">
+								<div class="col offset-s4">
+									<button class="btn waves-effect waves-light" type="submit" name="action">Submit
+										<i class="material-icons right">send</i>
+									</button>
+								</div>
+							</div>
 						</form>
 					</div>
 					<div id="D2" class="col s12" style="display:none">
 						<form>
 							<div class="row">
-								<div class="input-field col s6 offset-s2">
+								<div class="input-field col s6 offset-s3">
 									<input placeholder="Abscise X" id="X" type="text" class="validate">
 									<label for="X">X:</label>
 								</div>
 							</div>
 							<div class="row">
-								<div class="input-field col s6 offset-s2">
+								<div class="input-field col s6 offset-s3">
 									<input placeholder="Ordonné Y" id="Y" type="text" class="validate">
 									<label for="Y">Y:</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col offset-s4">
+									<button class="btn waves-effect waves-light" type="submit" name="action">Submit
+										<i class="material-icons right">send</i>
+									</button>
 								</div>
 							</div>
 						</form>

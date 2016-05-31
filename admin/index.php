@@ -28,3 +28,8 @@
 		else include_once 'vue/vue.php';
 	}
 ?>
+<pre>
+	<?php print_r(get_bats());
+	print_r(get_points());
+	print_r(get_plans(get_bats()[0])) ?>
+</pre>
