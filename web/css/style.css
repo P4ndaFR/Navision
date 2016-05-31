@@ -1,3 +1,4 @@
-	.side-nav{
-		z-index:3;
+	.leaflet-control-zoom{
+		/*position: fixed;
+		left:80%;*/
 	}

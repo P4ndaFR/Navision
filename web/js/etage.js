@@ -7,11 +7,13 @@ $(document).ready(function()
 	var map = L.map('mapid', {
 	  minZoom: 1,
 	  maxZoom: 4,
+	  zoomControl : false,
 	  center: [0, 0],
 	  zoom: 1,
 	  crs: L.CRS.Simple
 	});
 
+	L.control.zoom('topright');
 	// dimensions of the image
 	var w = 2000,
     	h = 1500,
@@ -24,18 +26,21 @@ $(document).ready(function()
 
 	// add the image overlay, 
 	// so that it covers the entire map
+	//L.marker([-50, 100	]).addTo(map);
+
+	var arrayRows = document.getElementById("points").rows;
+	var rowsNb = arrayRows.length;
+	for(var i = 0 ; i < rowsNb; i++)
+	{
+			//alert(arrayRows[i].cells[0].innerHTML);
+			//alert(arrayRows[i].cells[1].innerHTML);
+			L.marker([-arrayRows[i].cells[0].innerHTML,arrayRows[i].cells[1].innerHTML]).addTo(map);
+	}
+
 	L.imageOverlay(url, bounds).addTo(map);
 
 	// tell leaflet that the map is exactly as big as the image
 	map.setMaxBounds(bounds);
 	
-	var arrayRows = document.getElementById("points").rows;
-	var rowsNb = arrayRows.length;
-	
-	for(var i = 0 ; i < rowsNb; i++)
-	{
-			alert(arrayRows[i].cells[0].innerHTML);
-			alert(arrayRows[i].cells[1].innerHTML);
-	}
 
 });
