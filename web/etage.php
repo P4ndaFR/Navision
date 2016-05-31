@@ -1,7 +1,7 @@
 <script type="text/javascript" src="js/etage.js"></script>
+<script src="leaflet/leaflet.js"></script>
 <div class="container">
         <div class="row">
-            <div class="col m12">
                 <div class="card" id="map">
                         <?php
                             echo '<table id="points" style="display:none;">';
@@ -14,9 +14,11 @@
                             }
                             echo '</table>';
                         ?>
-                        <img class="responsive-img" id="img_map" src="data/etage1.png">
+                        
+                        <div class="col s12">
+                            <div id="mapid"></div>
+                        </div>
                 </div>
-            </div>
         </div>
 </div>
 </body>
