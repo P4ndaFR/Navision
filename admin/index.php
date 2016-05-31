@@ -5,10 +5,18 @@
 	include_once 'modele.php';
 	include_once 'login.php';
 	if(isset($_GET['action'])){
-		unset($_SESSION['login']);
 		switch ($_GET['action']){
 			case 'plan':
-			include_once 'vue/plans.php';
+				include_once 'vue/plans.php';
+			break;
+			case 'add':
+				include_once 'vue/add.php';
+			break;
+			case 'modify':
+				include_once 'vue/modify.php';
+			break;
+			case 'remove':
+				include_once 'vue/remove.php';
 			break;
 		}
 	}
@@ -20,4 +28,3 @@
 		else include_once 'vue/vue.php';
 	}
 ?>
-		<?php //print_r($_SESSION)?>
