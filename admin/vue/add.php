@@ -34,7 +34,8 @@
 			<a href="" class="brand-logo center">Navision</a>
 			<a href="./logout.php" class="waves-effect waves-light btn right">logout</a>
 		</div>
-		<div class="row black-text">
+	</nav>
+		<div class="row">
 			<div class="col s8">
 				<p class="col s12">salut<p>
 			</div>
@@ -50,17 +51,50 @@
 							<label for="choix2">Point de routage</label>
 						</p>
 					</div>
-					<div class="row">
-						<div id="D1" class="col s6" style="display:none">
-							<p>recoucou</p>
-						</div>
-						<div id="D2" class="col s6" style="display:none">
-							<p>coucou</p>
-						</div>
-					</div>
 				</form>
+				<div class="row">
+					<div id="D1" class="col s12" style="display:none">
+						<form class="col s12">
+							<div class="row">
+								<div class="input-field col s4">
+									<input placeholder="Abscise X" id="X" type="text" class="validate">
+									<label for="X">X:</label>
+								</div>
+								<div class="input-field col s4">
+									<input placeholder="Ordonné Y" id="Y" type="text" class="validate">
+									<label for="Y">Y:</label>
+								</div>
+								<div class="input-field col s4">
+									<input placeholder="Nom" id="nom" type="text" class="validate">
+									<label for="nom">Nom:</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s12">
+									<textarea id="address" class="materialize-textarea"></textarea>
+									<label for="address">Address</label>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div id="D2" class="col s12" style="display:none">
+						<form>
+							<div class="row">
+								<div class="input-field col s8 offset-s4">
+									<input placeholder="Abscise X" id="X" type="text" class="validate">
+									<label for="X">X:</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s8 offset-s4">
+									<input placeholder="Ordonné Y" id="Y" type="text" class="validate">
+									<label for="Y">Y:</label>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
 			</div>
 		</div>
-	</nav>
-</body>
+	</body>
 </html>

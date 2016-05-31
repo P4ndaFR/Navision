@@ -22,12 +22,12 @@
 			<a href="" class="brand-logo center">Navision</a>
 			<a href="./logout.php" class="waves-effect waves-light btn right">logout</a>
 		</div>
-		<div class="row">
-			<div class="col s8">
-			</div>
-			<div class="col s4">
-			</div>
-		</div>
 	</nav>
+	<div class="row">
+		<div class="col s8">
+		</div>
+		<div class="col s4">
+		</div>
+	</div>
 </body>
 </html>
