@@ -12,11 +12,9 @@ $(document).ready(function()
 	  zoom: 1,
 	  crs: L.CRS.Simple
 	});
-
-	L.control.zoom('topright');
 	// dimensions of the image
-	var w = 2000,
-    	h = 1500,
+	var w = 1800,
+    	h = 1181	,	
     	url = 'data/etage1.png';
 
 	// calculate the edges of the image, in coordinate space
@@ -36,11 +34,16 @@ $(document).ready(function()
 			//alert(arrayRows[i].cells[1].innerHTML);
 			L.marker([-arrayRows[i].cells[0].innerHTML,arrayRows[i].cells[1].innerHTML]).addTo(map);
 	}
-
 	L.imageOverlay(url, bounds).addTo(map);
 
 	// tell leaflet that the map is exactly as big as the image
 	map.setMaxBounds(bounds);
+
+	map.on('click', function(e)
+	{
+    	alert(e.latlng);
+	});
 	
 
 });
+

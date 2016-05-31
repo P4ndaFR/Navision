@@ -13,6 +13,7 @@
                                 echo '</tr>';
                             }
                             echo '</table>';
+                            echo '<pre>'.print_r($points).'</pre>';
                         ?>
                         
                         <div class="col s12">
