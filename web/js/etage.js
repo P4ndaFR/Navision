@@ -13,8 +13,8 @@ $(document).ready(function()
 	  crs: L.CRS.Simple
 	});
 	// dimensions of the image
-	var w = 1800,
-    	h = 1181	,	
+	var w = 1600,
+    	h = 1050,	
     	url = 'data/etage1.png';
 
 	// calculate the edges of the image, in coordinate space
@@ -28,20 +28,40 @@ $(document).ready(function()
 
 	var arrayRows = document.getElementById("points").rows;
 	var rowsNb = arrayRows.length;
+	var tab_points = [];
 	for(var i = 0 ; i < rowsNb; i++)
 	{
 			//alert(arrayRows[i].cells[0].innerHTML);
-			//alert(arrayRows[i].cells[1].innerHTML);
-			L.marker([-arrayRows[i].cells[0].innerHTML,arrayRows[i].cells[1].innerHTML]).addTo(map);
+			//alert(arrayRows[i].cells[2].innerHTML);
+			tab_points[i] = L.marker([-arrayRows[i].cells[0].innerHTML,arrayRows[i].cells[1].innerHTML],{title:arrayRows[i].cells[2].innerHTML}).addTo(map);
+			tab_points[i].id = arrayRows[i].cells[2].innerHTML;
+			tab_points[i].name = arrayRows[i].cells[3].innerHTML;
+			tab_points[i].description = arrayRows[i].cells[4].innerHTML;
 	}
+
 	L.imageOverlay(url, bounds).addTo(map);
 
 	// tell leaflet that the map is exactly as big as the image
 	map.setMaxBounds(bounds);
 
-	map.on('click', function(e)
+	map.on('mouseover', function(e)
 	{
-    	alert(e.latlng);
+    	for (var i = 0; i < tab_points.length; i++)
+    	{
+    		tab_points[i].on('click',function()
+    		{
+    			location.href = "index.php?page=etage&drop=drop"+(this).id;
+    			info_card = document.createElement("div");
+    			container = document.getElementById("container");
+    			container.appendChild(info_card);
+
+    		});
+    	}
+
+		map.on('click', function(e)
+		{
+			location.href = "index.php?page=etage";
+		});
 	});
 	
 
