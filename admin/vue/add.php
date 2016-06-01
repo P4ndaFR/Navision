@@ -33,7 +33,7 @@
 		<div class="nav-wrapper">
 			<a href="./" class="brand-logo center">Navision</a>
 			<a href="./logout.php" class="waves-effect waves-light btn right">logout</a>
-			<a href="./?etage=<?php echo $_GET['etage']?>&action=plan" class="waves-effect waes-light btn left">previous</a>
+			<a href="./?action=etage" class="waves-effect waes-light btn left">previous</a>
 		</div>
 	</nav>
 		<div class="row">
@@ -55,24 +55,24 @@
 				</form>
 				<div class="row">
 					<div id="D1" class="col s12" style="display:none">
-						<form class="col s12">
+						<form method="post"">
 							<div class="row">
 								<div class="input-field col s4">
-									<input placeholder="Abscise X" id="X" type="text" class="validate">
+									<input placeholder="Abscise X" id="X" name="X" type="text" class="validate">
 									<label for="X">X:</label>
 								</div>
 								<div class="input-field col s4">
-									<input placeholder="Ordonné Y" id="Y" type="text" class="validate">
+									<input placeholder="Ordonné Y" id="Y" name="Y"type="text" class="validate">
 									<label for="Y">Y:</label>
 								</div>
 								<div class="input-field col s4">
-									<input placeholder="Nom" id="nom" type="text" class="validate">
+									<input placeholder="Nom" id="nom" name="nom" type="text" class="validate">
 									<label for="nom">Nom:</label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
-									<textarea id="description" class="materialize-textarea"></textarea>
+									<textarea id="description" name="description" class="materialize-textarea"></textarea>
 									<label for="description">Description du point d'intérêt</label>
 								</div>
 							</div>
@@ -86,22 +86,22 @@
 						</form>
 					</div>
 					<div id="D2" class="col s12" style="display:none">
-						<form>
+						<form method="post">
 							<div class="row">
 								<div class="input-field col s6 offset-s3">
-									<input placeholder="Abscise X" id="X" type="text" class="validate">
+									<input placeholder="Abscise X" id="X" name="X" type="text" class="validate">
 									<label for="X">X:</label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="input-field col s6 offset-s3">
-									<input placeholder="Ordonné Y" id="Y" type="text" class="validate">
+									<input placeholder="Ordonné Y" id="Y" name="Y" type="text" class="validate">
 									<label for="Y">Y:</label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col offset-s4">
-									<button class="btn waves-effect waves-light" type="submit" name="action">Submit
+									<button class="btn waves-effect waves-light" type="submit" name="action" value="action">Submit
 										<i class="material-icons right">send</i>
 									</button>
 								</div>

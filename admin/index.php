@@ -4,9 +4,21 @@
 	$bdd = new PDO('mysql:host=localhost;dbname=Navision;charset=utf8', 'Navision', 'Navision');
 	include_once 'modele.php';
 	include_once 'login.php';
+	if(isset($_GET['etage'])){
+		$strings = explode(',',$_GET['etage']);
+		$_SESSION['etage']=$strings[0];
+		$_SESSION['bat']=$strings[1];
+	}
+	if(isset($_POST['X'])){
+		if(!isset($_POST['nom'])){
+			add_point($_SESSION['bat'],$_SESSION['etage'],$_POST['X'],$_POST['Y'],NULL,NULL,NULL,NULL);
+		}else{
+			add_point($_SESSION['bat'],$_SESSION['etage'],$_POST['X'],$_POST['Y'],$_POST['nom'],$_POST[description],NULL,NULL);
+		}
+	}
 	if(isset($_GET['action'])){
 		switch ($_GET['action']){
-			case 'plan':
+			case 'etage':
 				include_once 'vue/plans.php';
 			break;
 			case 'add':
@@ -29,7 +41,7 @@
 	}
 ?>
 <pre>
-	<?php print_r(get_bats());
-	print_r(get_points());
-	print_r(get_plans(get_bats()[0])) ?>
+	<?php print_r($_GET);
+	print_r($_SESSION);
+	print_r($_POST)?>
 </pre>

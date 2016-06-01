@@ -27,16 +27,17 @@
 		$bats = $req->fetchALL();
 		return $bats;
 	}
-	function get_plans($bat){
+	function get_etages($bat){
 		global $bdd;
-		$req = $bdd->prepare('SELECT `CODE_BAT`,`NIVEAU`,`NOM`,`URL_PLAN` FROM `ETAGE`,BATIMENTS WHERE BATIMENTS.CODE_BAT = PLANS.CODE_BAT && NOM_BAT = :nom_bat;');
+		$req = $bdd->prepare('SELECT ETAGE.`CODE_BAT`,`NIVEAU`,`NOM`,`URL_PLAN` FROM `ETAGE`,BATIMENTS WHERE ETAGE.CODE_BAT = BATIMENTS.CODE_BAT && NOM_BAT = :nom_bat;');
 		$req->execute(array('nom_bat' => $bat));
-		$plans = $req->fetchALL();
-		return $plans;
+		$etages = $req->fetchALL();
+		return $etages;
 	}
-/*	function add_point($X,$Y){
+	function add_point($bat,$etage,$X,$Y,$nom,$description){
 		global $bdd;
-		$req = $bdd->prepare('INSERT INTO `Navision`.`POINT` (`ID_PT`, `CODE_BAT`, `URL_PLAN`, `X`, `Y`, `ETAGE`, `NOM`, `DESCRIPTION`, `QR_CODE`, `URL_QRCODE`) VALUES ('', '', '', ':X', ':Y', '', NULL, NULL, NULL, NULL);');
-		$req->execute(array('X' => $X,'Y' => $Y));
-	}*/
+		$req = $bdd->prepare('INSERT INTO `Navision`.`POINT` (`ID_PT`, `CODE_BAT`, `NIVEAU`, `X`, `Y`, `NOM`, `DESCRIPTION`, `QR_CODE`, `URL_QRCODE`) 
+		VALUES (0, :bat, :etage, :X, :Y, :nom, :description, NULL, NULL);');
+		$req->execute(array('bat'=> $bat, 'etage' => $etage, 'X'=> $X, 'Y'=>$Y, 'nom' => $nom, 'description'=> $description));
+	}
 ?>
