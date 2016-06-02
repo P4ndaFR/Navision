@@ -8,6 +8,9 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		<link type="text/css" rel="stylesheet" href="css/etage.css"/>
+		<link type="text/css" rel="stylesheet" href="leaflet/leaflet.css"/>
+
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -38,7 +41,38 @@
 	</nav>
 		<div class="row">
 			<div class="col s8">
-				<p class="col s12">salut<p>
+				<script type="text/javascript" src="js/etage.js"></script>
+				<script type="text/javascript" src="leaflet/leaflet.js"></script>
+				<script type="text/javascript" src="leaflet/leaflet.sprite.js"></script>
+								<div class="card" id="map">
+												<?php
+														echo '<table id="points" style="display:none;">';
+														for($i = 0 ; $i < count($points) ; $i++)
+														{
+																echo '<tr>';
+																echo '<td>'.$points[$i]['X'].'</td>';
+																echo '<td>'.$points[$i]['Y'].'</td>';
+																echo '<td>'.$points[$i]['ID_PT'].'</td>';
+																echo '<td>'.$points[$i]['NOM'].'</td>';
+																echo '<td>'.$points[$i]['DESCRIPTION'].'</td>';
+																echo '<td>'.$points[$i]['CODE_BAT'].'</td>';
+																echo '<td>'.$points[$i]['NIVEAU'].'</td>';
+																echo '</tr>';
+														}
+														echo '</table>';
+														//echo '<pre>'.print_r($points).'</pre>';
+												?>
+												<table id="session" style="display:none;">
+													<tr>
+														<td><?php echo $_SESSION['bat']?></td>
+														<td><?php echo $_SESSION['etage']?></td>
+													</tr>
+												</table>
+
+												<div class="col s12">
+														<div id="mapid"></div>
+												</div>
+								</div>
 			</div>
 			<div class="col s4">
 				<form name="form">
@@ -55,14 +89,14 @@
 				</form>
 				<div class="row">
 					<div id="D1" class="col s12" style="display:none">
-						<form method="post"">
+						<form method="post">
 							<div class="row">
 								<div class="input-field col s4">
-									<input placeholder="Abscise X" id="X" name="X" type="text" class="validate">
+									<input placeholder="Abscise X" id="X" name="X" type="text" class="validate X">
 									<label for="X">X:</label>
 								</div>
 								<div class="input-field col s4">
-									<input placeholder="Ordonné Y" id="Y" name="Y"type="text" class="validate">
+									<input placeholder="Ordonné Y" id="Y" name="Y" type="text" class="validate Y">
 									<label for="Y">Y:</label>
 								</div>
 								<div class="input-field col s4">
@@ -89,13 +123,13 @@
 						<form method="post">
 							<div class="row">
 								<div class="input-field col s6 offset-s3">
-									<input placeholder="Abscise X" id="X" name="X" type="text" class="validate">
+									<input placeholder="Abscise X" id="X" name="X" type="text" class="validate X">
 									<label for="X">X:</label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="input-field col s6 offset-s3">
-									<input placeholder="Ordonné Y" id="Y" name="Y" type="text" class="validate">
+									<input placeholder="Ordonné Y" id="Y" name="Y" type="text" class="validate Y">
 									<label for="Y">Y:</label>
 								</div>
 							</div>
