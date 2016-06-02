@@ -4,6 +4,7 @@
 	$bdd = new PDO('mysql:host=localhost;dbname=Navision;charset=utf8', 'Navision', 'Navision');
 	include_once 'modele.php';
 	include_once 'login.php';
+	$points = get_points();
 	if(isset($_GET['etage'])){
 		$strings = explode(',',$_GET['etage']);
 		$_SESSION['etage']=$strings[0];
@@ -12,8 +13,18 @@
 	if(isset($_POST['X'])){
 		if(!isset($_POST['nom'])){
 			add_point($_SESSION['bat'],$_SESSION['etage'],$_POST['X'],$_POST['Y'],NULL,NULL,NULL,NULL);
+			unset($_POST['X']);
+			unset($_POST['Y']);
+			header('Location: ./?action=add');
+			exit;
 		}else{
-			add_point($_SESSION['bat'],$_SESSION['etage'],$_POST['X'],$_POST['Y'],$_POST['nom'],$_POST[description],NULL,NULL);
+			add_point($_SESSION['bat'],$_SESSION['etage'],$_POST['X'],$_POST['Y'],$_POST['nom'],$_POST['description'],NULL,NULL);
+			unset($_POST['nom']);
+			unset($_POST['description']);
+			unset($_POST['X']);
+			unset($_POST['Y']);
+			header('Location: ./?action=add');
+			exit;
 		}
 	}
 	if(isset($_GET['action'])){
@@ -43,5 +54,6 @@
 <pre>
 	<?php print_r($_GET);
 	print_r($_SESSION);
-	print_r($_POST)?>
+	print_r($_POST);
+	print_r($points)?>
 </pre>
