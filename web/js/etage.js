@@ -28,41 +28,41 @@ $(document).ready(function()
 
 	var arrayRows = document.getElementById("points").rows;
 	var rowsNb = arrayRows.length;
-	var tab_points = [];
+	var points = [];
 	for(var i = 0 ; i < rowsNb; i++)
 	{
 			//alert(arrayRows[i].cells[0].innerHTML);
 			//alert(arrayRows[i].cells[2].innerHTML);
-			tab_points[i] = L.marker([-arrayRows[i].cells[0].innerHTML,arrayRows[i].cells[1].innerHTML],{title:arrayRows[i].cells[2].innerHTML}).addTo(map);
-			tab_points[i].id = arrayRows[i].cells[2].innerHTML;
-			tab_points[i].name = arrayRows[i].cells[3].innerHTML;
-			tab_points[i].description = arrayRows[i].cells[4].innerHTML;
+			points[i] = L.marker([-arrayRows[i].cells[1].innerHTML,arrayRows[i].cells[0].innerHTML],{title:arrayRows[i].cells[2].innerHTML}).addTo(map);
+			//tab_points[i].id = arrayRows[i].cells[2].innerHTML;
+			points[i].name = arrayRows[i].cells[3].innerHTML;
+			points[i].description = arrayRows[i].cells[4].innerHTML;
+			points[i].id = i;
 	}
 
 	L.imageOverlay(url, bounds).addTo(map);
 
 	// tell leaflet that the map is exactly as big as the image
 	map.setMaxBounds(bounds);
-
-	map.on('mouseover', function(e)
-	{
-    	for (var i = 0; i < tab_points.length; i++)
+	
+	var markers = document.getElementsByClassName("leaflet-marker-icon leaflet-zoom-animated leaflet-clickable");
+    for (var i = 0; i < points.length; i++)
+    { 
+    	//alert(markers[i].className);
+    	points[i].bindPopup(points[i].name + '<br/><button action="index.php?page=poi&">More</button>');
+    	points[i].on('click',function()
     	{
-    		tab_points[i].on('click',function()
-    		{
-    			location.href = "index.php?page=etage&drop=drop"+(this).id;
-    			info_card = document.createElement("div");
-    			container = document.getElementById("container");
-    			container.appendChild(info_card);
-
-    		});
-    	}
-
+    		//alert(this.id);
+    		//(this).bindPopup((this).name + "<br/><button>More</button>");
+   		});
+   	}
+	/*	
 		map.on('click', function(e)
 		{
 			location.href = "index.php?page=etage";
+			var info_card;
 		});
-	});
+	*/
 	
 
 });
