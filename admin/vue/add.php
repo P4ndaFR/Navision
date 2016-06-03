@@ -36,12 +36,12 @@
 		<div class="nav-wrapper">
 			<a href="./" class="brand-logo center">Navision</a>
 			<a href="./logout.php" class="waves-effect waves-light btn right">logout</a>
-			<a href="./?action=etage" class="waves-effect waes-light btn left">previous</a>
+			<a href="./?page=etage" class="waves-effect waes-light btn left">previous</a>
 		</div>
 	</nav>
 		<div class="row">
 			<div class="col s8">
-				<script type="text/javascript" src="js/etage.js"></script>
+				<script type="text/javascript" src="js/add.js"></script>
 				<script type="text/javascript" src="leaflet/leaflet.js"></script>
 				<script type="text/javascript" src="leaflet/leaflet.sprite.js"></script>
 								<div class="card" id="map">
@@ -112,7 +112,7 @@
 							</div>
 							<div class="row">
 								<div class="col offset-s4">
-									<button class="btn waves-effect waves-light" type="submit" name="action">Submit
+									<button class="btn waves-effect waves-light" type="submit" name="action" value="add">Submit
 										<i class="material-icons right">send</i>
 									</button>
 								</div>
@@ -135,7 +135,7 @@
 							</div>
 							<div class="row">
 								<div class="col offset-s4">
-									<button class="btn waves-effect waves-light" type="submit" name="action" value="action">Submit
+									<button class="btn waves-effect waves-light" type="submit" name="action" value="add">Submit
 										<i class="material-icons right">send</i>
 									</button>
 								</div>

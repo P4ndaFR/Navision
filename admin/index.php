@@ -10,25 +10,53 @@
 		$_SESSION['etage']=$strings[0];
 		$_SESSION['bat']=$strings[1];
 	}
-	if(isset($_POST['X'])){
-		if(!isset($_POST['nom'])){
-			add_point($_SESSION['bat'],$_SESSION['etage'],$_POST['X'],$_POST['Y'],NULL,NULL,NULL,NULL);
-			unset($_POST['X']);
-			unset($_POST['Y']);
-			header('Location: ./?action=add');
-			exit;
-		}else{
-			add_point($_SESSION['bat'],$_SESSION['etage'],$_POST['X'],$_POST['Y'],$_POST['nom'],$_POST['description'],NULL,NULL);
-			unset($_POST['nom']);
-			unset($_POST['description']);
-			unset($_POST['X']);
-			unset($_POST['Y']);
-			header('Location: ./?action=add');
-			exit;
-		}
+	if(isset($_POST['action'])){
+		switch ($_POST['action']) {
+			case 'add':
+				if(!isset($_POST['nom'])){
+					add_point($_SESSION['bat'],$_SESSION['etage'],$_POST['X'],$_POST['Y'],NULL,NULL,NULL,NULL);
+					unset($_POST['X']);
+					unset($_POST['Y']);
+					header('Location: ./?action=add');
+					exit;
+				}else{
+					add_point($_SESSION['bat'],$_SESSION['etage'],$_POST['X'],$_POST['Y'],$_POST['nom'],$_POST['description'],NULL,NULL);
+					unset($_POST['nom']);
+					unset($_POST['description']);
+					unset($_POST['X']);
+					unset($_POST['Y']);
+					header('Location: ./?action=add');
+					exit;
+			}
+				break;
+
+			case 'modify':
+				if(!isset($_POST['nom'])){
+					modify_point($_GET['pt'],$_POST['X'],$_POST['Y'],NULL,NULL);
+					unset($_POST['X']);
+					unset($_POST['Y']);
+					header('Location: ./?page=modify');
+					exit;
+				}else{
+					modify_point($_GET['pt'],$_POST['X'],$_POST['Y'],$_POST['nom'],$_POST['description']);
+					unset($_POST['nom']);
+					unset($_POST['description']);
+					unset($_POST['X']);
+					unset($_POST['Y']);
+					header('Location: ./?page=modify');
+					exit;
+			}
+				break;
+				case 'remove':
+						remove_point($_GET['pt']);
+						header('Location: ./?page=remove');
+						exit;
+					break;
 	}
-	if(isset($_GET['action'])){
-		switch ($_GET['action']){
+	}
+
+	if(isset($_GET['page'])){
+		switch ($_GET['page']){
 			case 'etage':
 				include_once 'vue/plans.php';
 			break;
@@ -51,9 +79,9 @@
 		else include_once 'vue/vue.php';
 	}
 ?>
-<pre>
-	<?php print_r($_GET);
+<!--<pre>
+	<?php/* print_r($_GET);
 	print_r($_SESSION);
 	print_r($_POST);
-	print_r($points)?>
-</pre>
+	print_r($points)*/?>
+</pre>-->

@@ -36,7 +36,7 @@
           <label for="password">Password</label>
         </div>
       </div>
-      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+      <button class="btn waves-effect waves-light" type="submit" name="page">Submit
       <i class="material-icons right">send</i>
       </button>
     </form>
