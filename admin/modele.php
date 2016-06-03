@@ -36,8 +36,18 @@
 	}
 	function add_point($bat,$etage,$X,$Y,$nom,$description){
 		global $bdd;
-		$req = $bdd->prepare('INSERT INTO `Navision`.`POINT` (`ID_PT`, `CODE_BAT`, `NIVEAU`, `X`, `Y`, `NOM`, `DESCRIPTION`, `QR_CODE`, `URL_QRCODE`) 
+		$req = $bdd->prepare('INSERT INTO `Navision`.`POINT` (`ID_PT`, `CODE_BAT`, `NIVEAU`, `X`, `Y`, `NOM`, `DESCRIPTION`, `QR_CODE`, `URL_QRCODE`)
 		VALUES (0, :bat, :etage, :X, :Y, :nom, :description, NULL, NULL);');
 		$req->execute(array('bat'=> $bat, 'etage' => $etage, 'X'=> $X, 'Y'=>$Y, 'nom' => $nom, 'description'=> $description));
+	}
+	function modify_point($id,$X,$Y,$nom,$description){
+		global $bdd;
+		$req = $bdd->prepare('UPDATE POINT SET X = :X, Y = :Y, NOM = :nom, DESCRIPTION = :description WHERE ID_PT = :id;');
+		$req->execute(array('id'=> $id, 'X'=> $X, 'Y'=>$Y, 'nom' => $nom, 'description'=> $description));
+	}
+	function remove_point($id){
+		global $bdd;
+		$req = $bdd->prepare('DELETE FROM POINT WHERE ID_PT = :id;');
+		$req->execute(array('id'=> $id));
 	}
 ?>

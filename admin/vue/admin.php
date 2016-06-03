@@ -44,7 +44,7 @@
 		</div>
 		<div class="row">
 			<div class="col s2 offset-s5">
-				<button class="btn waves-effect waves-light" type="submit" name="action" value="etage">Submit
+				<button class="btn waves-effect waves-light" type="submit" name="page" value="etage">Submit
 					<i class="material-icons right">send</i>
 				</button>
 			</div>

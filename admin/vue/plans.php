@@ -64,13 +64,13 @@
 		</div>
 		<div class="col s4">
 			<div class="row">
-				<a href="./?action=add" class="col waves-effect waves-light btn-large s12"><i class="material-icons left">location_on</i>Ajouter un Point</a>
+				<a href="./?page=add" class="col waves-effect waves-light btn-large s12"><i class="material-icons left">location_on</i>Ajouter un Point</a>
 			</div>
 			<div class="row">
-				<a href="./?action=modify" class="col waves-effect waves-light btn-large s12"><i class="material-icons left">mode_edit</i>Modifier un Point</a>
+				<a href="./?page=modify" class="col waves-effect waves-light btn-large s12"><i class="material-icons left">mode_edit</i>Modifier un Point</a>
 			</div>
 			<div class="row">
-				<a href="./?etage=action=remove" class="col waves-effect waves-light btn-large s12"><i class="material-icons left">location_off</i>Supprimer un Point</a>
+				<a href="./?page=remove" class="col waves-effect waves-light btn-large s12"><i class="material-icons left">location_off</i>Supprimer un Point</a>
 			</div>
 		</div>
 	</div>

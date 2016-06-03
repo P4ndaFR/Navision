@@ -14,6 +14,7 @@ $(document).ready(function()
 	});
 	var bat = document.getElementById('session').rows[0].cells[0].innerHTML;
 			etage = document.getElementById('session').rows[0].cells[1].innerHTML;
+			pt = document.getElementById('session').rows[0].cells[2].innerHTML;
 	// dimensions of the image
 	var w = 1600,
     	h = 1050,
@@ -39,6 +40,8 @@ $(document).ready(function()
 				tab_points[j].id = arrayRows[i].cells[2].innerHTML;
 				tab_points[j].name = arrayRows[i].cells[3].innerHTML;
 				tab_points[j].description = arrayRows[i].cells[4].innerHTML;
+				tab_points[j].lat = arrayRows[i].cells[1].innerHTML;
+				tab_points[j].lng = arrayRows[i].cells[0].innerHTML;
 				j++;
 			}
 	}
@@ -61,22 +64,32 @@ $(document).ready(function()
     		});
     	}*/
 
-			map.on('click', function(e)
+			/*map.on('click', function(e)
 			{
 					document.getElementsByName('X')[0].value = e.latlng.lng;
 					document.getElementsByName('X')[1].value = e.latlng.lng;
 					document.getElementsByName('Y')[0].value = -e.latlng.lat;
-					document.getElementsByName('Y')[1].value = -e.latlng.lat
+					document.getElementsByName('Y')[1].value = -e.latlng.lat;
 					if(!tab_points[j]){
 						tab_points[j] = L.marker(e.latlng,{title:"tmp",icon: L.spriteIcon("red")}).addTo(map);
 					}else{
 						tab_points[j].setLatLng(e.latlng);
 					}
 
-			});
+			});*/
+			if(pt != 0){
+				for(i=0;i<tab_points.length;i++){
+					if(tab_points[i].id != pt){
+						map.removeLayer(tab_points[i]);
+					}else{
+						document.getElementById('X').value = tab_points[i].lng;
+						document.getElementById('Y').value = tab_points[i].lat;
+					}
+				}
+			}
 			for(var k=0;k<tab_points.length;k++){
 				tab_points[k].on('click',function(d){
-					alert(this.id);
+					window.location="./?page=remove&pt="+this.id;
 				});
 			}
 
