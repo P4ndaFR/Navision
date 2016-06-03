@@ -36,21 +36,15 @@ $(document).ready(function()
 	{
 			//alert(arrayRows[i].cells[0].innerHTML);
 			//alert(arrayRows[i].cells[2].innerHTML);
-<<<<<<< HEAD
-			points[i] = L.marker([-arrayRows[i].cells[1].innerHTML,arrayRows[i].cells[0].innerHTML],{title:arrayRows[i].cells[2].innerHTML}).addTo(map);
-			points[i].y = arrayRows[i].cells[1].innerHTML;
-			points[i].x = arrayRows[i].cells[0].innerHTML;
-			points[i].id = arrayRows[i].cells[2].innerHTML;
-			points[i].name = arrayRows[i].cells[3].innerHTML;
-			points[i].description = arrayRows[i].cells[4].innerHTML;
-=======
+
 			if(arrayRows[i].cells[5].innerHTML == bat && arrayRows[i].cells[6].innerHTML == etage){
 				points[i] = L.marker([-arrayRows[i].cells[1].innerHTML,arrayRows[i].cells[0].innerHTML],{title:arrayRows[i].cells[2].innerHTML}).addTo(map);
+				points[i].y = arrayRows[i].cells[1].innerHTML;
+				points[i].x = arrayRows[i].cells[0].innerHTML;
 				points[i].id = arrayRows[i].cells[2].innerHTML;
 				points[i].name = arrayRows[i].cells[3].innerHTML;
 				points[i].description = arrayRows[i].cells[4].innerHTML;
 			}
->>>>>>> 403287d380f0d17616aeae584cda18cdc8981113
 	}
 
 	L.imageOverlay(url, bounds).addTo(map);
@@ -64,7 +58,6 @@ $(document).ready(function()
     for (var i = 0; i < points.length; i++)
     {
     	points[i].bindPopup(points[i].name + '<br/><a class="waves-effect waves-light btn white-text red" href="index.php?page=poi&selectedPoint='+points[i].id+'#'+points[i].id+'">Détails</a>');
-<<<<<<< HEAD
     	if( location.innerHTML == "true" && points[i].id == selectedPoint.innerHTML )
     	{
     		//Ici on modifie la couleur du marqueur
@@ -82,15 +75,10 @@ $(document).ready(function()
     			.setContent('Vous êtes ici :<br/>'+name)
     			.openOn(map);
     		//points[i].openPopup();
-=======
-    	if( location.innerHTML == "true")
-    	{
-
->>>>>>> 403287d380f0d17616aeae584cda18cdc8981113
-    	}
    		if( points[i].id == selectedPoint.innerHTML )
    		{
    			points[i].openPopup();
    		}
    	}
+		}
 });
