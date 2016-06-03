@@ -57,6 +57,18 @@
 													<td><?php echo $_SESSION['etage']?></td>
 												</tr>
 											</table>
+											<?php
+													echo '<table id="liaisons" style="display:none;">';
+													for($i = 0 ; $i < count($liaisons) ; $i++)
+													{
+															echo '<tr>';
+															echo '<td>'.$liaisons[$i][0].'</td>';
+															echo '<td>'.$liaisons[$i][1].'</td>';
+															echo '</tr>';
+													}
+													echo '</table>';
+													//echo '<pre>'.print_r($points).'</pre>';
+											?>
 
 											<div class="col s12">
 													<div id="mapid"></div>
@@ -72,6 +84,9 @@
 			</div>
 			<div class="row">
 				<a href="./?page=remove" class="col waves-effect waves-light btn-large s12"><i class="material-icons left">location_off</i>Supprimer un Point</a>
+			</div>
+			<div class="row">
+				<a href="./?page=route" class="col waves-effect waves-light btn-large s12">Routage</a>
 			</div>
 			<div id="qrcode"><p>Sélectionner un point pour avoir le qrcode a imprimer</p></div>
 		</div>

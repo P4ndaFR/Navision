@@ -57,4 +57,9 @@
 		$id = $req->fetchALL();
 		return $id;
 	}
+	function add_route($src,$dest){
+		global $bdd;
+		$req = $bdd->prepare('INSERT INTO `Navision`.`LIAISON` (`POI_ID_PT`, `ID_PT`, `DISTANCE`) VALUES (:src, :dest, NULL);');
+		$req->execute(array('src'=> $src, 'dest'=>$dest));
+	}
 ?>
