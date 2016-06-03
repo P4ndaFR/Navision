@@ -1,6 +1,5 @@
 <script type="text/javascript" src="js/etage.js"></script>
 <script src="leaflet/leaflet.js"></script>
-<script src="leaflet/sprite.js"
 <div class="container" id="container">
         
                 <div class="card" id="map">
@@ -17,13 +16,12 @@
                                 echo '<td>'.$points[$i]['NIVEAUX'].'</td>';
                                 echo '</tr>';
                             }
-                            echo '</table>';
+                            echo 
+                            '<p id="selectedPoint" style="display:none;">'.$_GET['selectedPoint'].'</p>
+                            <p id="location" style="display:none;">'.$_GET['location'].'</p>';
+
                             //echo '<pre>'.print_r($points).'</pre>';
                         ?>
-<<<<<<< HEAD
-=======
-
->>>>>>> 922d76664219f33ea841228c213a3cd9b2169778
                         <div class="col s12">
                             <div id="mapid"></div>
                         </div>    

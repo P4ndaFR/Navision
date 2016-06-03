@@ -15,22 +15,13 @@
 		{
 
 			case 'etage':
-				if(isset($_GET['drop']))
-				{
-					switch ($_GET['drop']) {
-						case 1:
-							
-							break;
-						
-						default:
-							# code...
-							break;
-					}	
-				}
-					include_once('etage.php');
+				include_once('etage.php');
 			break;
 			case 'scan':
 				include_once('scan.php');
+			break;
+			case 'poi':
+				include_once('poi.php');
 			break;
 		}
 	}
