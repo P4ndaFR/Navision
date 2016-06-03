@@ -27,16 +27,46 @@
 		$bats = $req->fetchALL();
 		return $bats;
 	}
-	function get_plans($bat){
+	function get_etages($bat){
 		global $bdd;
-		$req = $bdd->prepare('SELECT `CODE_BAT`,`NIVEAU`,`NOM`,`URL_PLAN` FROM `ETAGE`,BATIMENTS WHERE BATIMENTS.CODE_BAT = PLANS.CODE_BAT && NOM_BAT = :nom_bat;');
+		$req = $bdd->prepare('SELECT ETAGE.`CODE_BAT`,`NIVEAU`,`NOM`,`URL_PLAN` FROM `ETAGE`,BATIMENTS WHERE ETAGE.CODE_BAT = BATIMENTS.CODE_BAT && NOM_BAT = :nom_bat;');
 		$req->execute(array('nom_bat' => $bat));
-		$plans = $req->fetchALL();
-		return $plans;
+		$etages = $req->fetchALL();
+		return $etages;
 	}
-/*	function add_point($X,$Y){
+	function get_niveau($id){
 		global $bdd;
-		$req = $bdd->prepare('INSERT INTO `Navision`.`POINT` (`ID_PT`, `CODE_BAT`, `URL_PLAN`, `X`, `Y`, `ETAGE`, `NOM`, `DESCRIPTION`, `QR_CODE`, `URL_QRCODE`) VALUES ('', '', '', ':X', ':Y', '', NULL, NULL, NULL, NULL);');
-		$req->execute(array('X' => $X,'Y' => $Y));
-	}*/
+		$req = $bdd->prepare('SELECT CODE_BAT,NIVEAU FROM `POINT` WHERE ID_PT = :id;');
+		$req->execute(array('id' => $id));
+		$etage = $req->fetchALL();
+		return $etage;
+	}
+	function add_point($bat,$etage,$X,$Y,$nom,$description){
+		global $bdd;
+		$req = $bdd->prepare('INSERT INTO `Navision`.`POINT` (`ID_PT`, `CODE_BAT`, `NIVEAU`, `X`, `Y`, `NOM`, `DESCRIPTION`, `QR_CODE`, `URL_QRCODE`)
+		VALUES (0, :bat, :etage, :X, :Y, :nom, :description, NULL, NULL);');
+		$req->execute(array('bat'=> $bat, 'etage' => $etage, 'X'=> $X, 'Y'=>$Y, 'nom' => $nom, 'description'=> $description));
+	}
+	function modify_point($id,$X,$Y,$nom,$description){
+		global $bdd;
+		$req = $bdd->prepare('UPDATE POINT SET X = :X, Y = :Y, NOM = :nom, DESCRIPTION = :description WHERE ID_PT = :id;');
+		$req->execute(array('id'=> $id, 'X'=> $X, 'Y'=>$Y, 'nom' => $nom, 'description'=> $description));
+	}
+	function remove_point($id){
+		global $bdd;
+		$req = $bdd->prepare('DELETE FROM POINT WHERE ID_PT = :id;');
+		$req->execute(array('id'=> $id));
+	}
+	function get_autoincrement(){
+		global $bdd;
+		$req = $bdd->prepare('SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = "Navision" AND TABLE_NAME = "POINT";');
+		$req->execute();
+		$id = $req->fetchALL();
+		return $id;
+	}
+	function add_route($src,$dest){
+		global $bdd;
+		$req = $bdd->prepare('INSERT INTO `Navision`.`LIAISON` (`POI_ID_PT`, `ID_PT`, `DISTANCE`) VALUES (:src, :dest, NULL);');
+		$req->execute(array('src'=> $src, 'dest'=>$dest));
+	}
 ?>
