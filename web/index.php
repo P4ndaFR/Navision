@@ -36,10 +36,4 @@
 	{
 		include_once('accueil.php');
 	}
-<<<<<<< HEAD
-	find_path(2,33);
-	print_r(read_path());
 ?>
-=======
-?>
->>>>>>> 403287d380f0d17616aeae584cda18cdc8981113
