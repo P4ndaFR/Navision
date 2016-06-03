@@ -14,7 +14,7 @@ $(document).ready(function()
 	});
 	// dimensions of the image
 	var bat = document.getElementById('session').rows[0].cells[0].innerHTML;
-			etage = document.getElementById('session').rows[0].cells[1].innerHTML;
+	var	etage = document.getElementById('session').rows[0].cells[1].innerHTML;
 
 	var w = 1600,
     	h = 1050,
