@@ -26,6 +26,7 @@ $(document).ready(function()
 	// so that it covers the entire map
 	//L.marker([-50, 100	]).addTo(map);
 
+	//Récupération points depuis html + création des marqueurs
 	var arrayRows = document.getElementById("points").rows;
 	var rowsNb = arrayRows.length;
 	var points = [];
@@ -34,10 +35,9 @@ $(document).ready(function()
 			//alert(arrayRows[i].cells[0].innerHTML);
 			//alert(arrayRows[i].cells[2].innerHTML);
 			points[i] = L.marker([-arrayRows[i].cells[1].innerHTML,arrayRows[i].cells[0].innerHTML],{title:arrayRows[i].cells[2].innerHTML}).addTo(map);
-			//tab_points[i].id = arrayRows[i].cells[2].innerHTML;
+			points[i].id = arrayRows[i].cells[2].innerHTML;
 			points[i].name = arrayRows[i].cells[3].innerHTML;
 			points[i].description = arrayRows[i].cells[4].innerHTML;
-			points[i].id = i;
 	}
 
 	L.imageOverlay(url, bounds).addTo(map);
@@ -45,25 +45,19 @@ $(document).ready(function()
 	// tell leaflet that the map is exactly as big as the image
 	map.setMaxBounds(bounds);
 	
-	var markers = document.getElementsByClassName("leaflet-marker-icon leaflet-zoom-animated leaflet-clickable");
+	//génération des popups
+    var selectedPoint = document.getElementById("selectedPoint");
     for (var i = 0; i < points.length; i++)
     { 
-    	//alert(markers[i].className);
-    	points[i].bindPopup(points[i].name + '<br/><button action="index.php?page=poi&">More</button>');
-    	points[i].on('click',function()
+    	points[i].bindPopup(points[i].name + '<br/><a class="waves-effect waves-light btn white-text red" href="index.php?page=poi&selectedPoint='+points[i].id+'#'+points[i].id+'">Détails</a>');
+    	if( location.innerHTML == "true" && )
     	{
-    		//alert(this.id);
-    		//(this).bindPopup((this).name + "<br/><button>More</button>");
-   		});
+    		
+    	}
+   		if( points[i].id == selectedPoint.innerHTML )
+   		{
+   			points[i].openPopup();
+   		}
    	}
-	/*	
-		map.on('click', function(e)
-		{
-			location.href = "index.php?page=etage";
-			var info_card;
-		});
-	*/
-	
-
 });
 
