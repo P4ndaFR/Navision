@@ -29,4 +29,6 @@
 	{
 		include_once('accueil.php');
 	}
+	find_path(2,33);
+	print_r(read_path());
 ?>

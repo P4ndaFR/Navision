@@ -1,5 +1,6 @@
-<script type="text/javascript" src="js/etage.js"></script>
 <script src="leaflet/leaflet.js"></script>
+<script src="leaflet/leaflet.sprite.js"></script>
+<script type="text/javascript" src="js/etage.js"></script>
 <div class="container" id="container">
         
                 <div class="card" id="map">
@@ -17,8 +18,12 @@
                                 echo '</tr>';
                             }
                             echo 
-                            '<p id="selectedPoint" style="display:none;">'.$_GET['selectedPoint'].'</p>
+                            '<p id="selectedPoint" style="display:none;">'.$_GET['selectedPoint'].'</p>';
+                            if (isset($_GET['location']))
+                            {
+                            echo '
                             <p id="location" style="display:none;">'.$_GET['location'].'</p>';
+                            }
 
                             //echo '<pre>'.print_r($points).'</pre>';
                         ?>
