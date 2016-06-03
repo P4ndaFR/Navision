@@ -75,10 +75,10 @@ $(document).ready(function()
     			.setContent('Vous êtes ici :<br/>'+name)
     			.openOn(map);
     		//points[i].openPopup();
+			}
    		if( points[i].id == selectedPoint.innerHTML )
    		{
    			points[i].openPopup();
    		}
-   	}
 		}
 });
