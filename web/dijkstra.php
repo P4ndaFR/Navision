@@ -1,4 +1,5 @@
 <?php
+	// $src et $dest sont les ids des points
 	function find_path($src,$dest){
 		exec("java -jar ../java/Navision.jar $src $dest");
 	}
