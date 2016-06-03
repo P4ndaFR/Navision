@@ -60,23 +60,10 @@ $(document).ready(function()
 					alert(tab_points[i].id);
     		});
     	}*/
-
-			map.on('click', function(e)
-			{
-					document.getElementsByName('X')[0].value = e.latlng.lng;
-					document.getElementsByName('X')[1].value = e.latlng.lng;
-					document.getElementsByName('Y')[0].value = -e.latlng.lat;
-					document.getElementsByName('Y')[1].value = -e.latlng.lat
-					if(!tab_points[j]){
-						tab_points[j] = L.marker(e.latlng,{title:"tmp",icon: L.spriteIcon("red")}).addTo(map);
-					}else{
-						tab_points[j].setLatLng(e.latlng);
-					}
-
-			});
+var qrcode = new QRCode(document.getElementById('qrcode'));
 			for(var k=0;k<tab_points.length;k++){
 				tab_points[k].on('click',function(d){
-					alert(this.id);
+					qrcode.makeCode("?page=etage&location=true&selectedPoint="+this.id);
 				});
 			}
 

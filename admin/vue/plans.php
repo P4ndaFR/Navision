@@ -29,6 +29,7 @@
 	<div class="row">
 		<div class="col s8">
 			<script type="text/javascript" src="js/etage.js"></script>
+			<script type="text/javascript" src="js/qrcode.js"></script>
 			<script type="text/javascript" src="leaflet/leaflet.js"></script>
 			<script type="text/javascript" src="leaflet/leaflet.sprite.js"></script>
 							<div class="card" id="map">
@@ -72,6 +73,8 @@
 			<div class="row">
 				<a href="./?page=remove" class="col waves-effect waves-light btn-large s12"><i class="material-icons left">location_off</i>Supprimer un Point</a>
 			</div>
+			<div id="qrcode"><p>Sélectionner un point pour avoir le qrcode a imprimer</p></div>
+		</div>
 		</div>
 	</div>
 </body>

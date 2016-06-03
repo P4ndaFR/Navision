@@ -50,4 +50,11 @@
 		$req = $bdd->prepare('DELETE FROM POINT WHERE ID_PT = :id;');
 		$req->execute(array('id'=> $id));
 	}
+	function get_autoincrement(){
+		global $bdd;
+		$req = $bdd->prepare('SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = "Navision" AND TABLE_NAME = "POINT";');
+		$req->execute();
+		$id = $req->fetchALL();
+		return $id;
+	}
 ?>
