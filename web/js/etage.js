@@ -13,16 +13,19 @@ $(document).ready(function()
 	  crs: L.CRS.Simple
 	});
 	// dimensions of the image
+	var bat = document.getElementById('session').rows[0].cells[0].innerHTML;
+			etage = document.getElementById('session').rows[0].cells[1].innerHTML;
+
 	var w = 1600,
-    	h = 1050,	
-    	url = 'data/etage1.png';
+    	h = 1050,
+    	url = 'data/etage'+etage+'.png';
 
 	// calculate the edges of the image, in coordinate space
 	var southWest = map.unproject([0, h], map.getMaxZoom()-1);
 	var northEast = map.unproject([w, 0], map.getMaxZoom()-1);
 	var bounds = new L.LatLngBounds(southWest, northEast);
 
-	// add the image overlay, 
+	// add the image overlay,
 	// so that it covers the entire map
 	//L.marker([-50, 100	]).addTo(map)
 	//Récupération points depuis html + création des marqueurs
@@ -33,25 +36,35 @@ $(document).ready(function()
 	{
 			//alert(arrayRows[i].cells[0].innerHTML);
 			//alert(arrayRows[i].cells[2].innerHTML);
+<<<<<<< HEAD
 			points[i] = L.marker([-arrayRows[i].cells[1].innerHTML,arrayRows[i].cells[0].innerHTML],{title:arrayRows[i].cells[2].innerHTML}).addTo(map);
 			points[i].y = arrayRows[i].cells[1].innerHTML;
 			points[i].x = arrayRows[i].cells[0].innerHTML;
 			points[i].id = arrayRows[i].cells[2].innerHTML;
 			points[i].name = arrayRows[i].cells[3].innerHTML;
 			points[i].description = arrayRows[i].cells[4].innerHTML;
+=======
+			if(arrayRows[i].cells[5].innerHTML == bat && arrayRows[i].cells[6].innerHTML == etage){
+				points[i] = L.marker([-arrayRows[i].cells[1].innerHTML,arrayRows[i].cells[0].innerHTML],{title:arrayRows[i].cells[2].innerHTML}).addTo(map);
+				points[i].id = arrayRows[i].cells[2].innerHTML;
+				points[i].name = arrayRows[i].cells[3].innerHTML;
+				points[i].description = arrayRows[i].cells[4].innerHTML;
+			}
+>>>>>>> 403287d380f0d17616aeae584cda18cdc8981113
 	}
 
 	L.imageOverlay(url, bounds).addTo(map);
 
 	// tell leaflet that the map is exactly as big as the image
 	map.setMaxBounds(bounds);
-	
+
 	//génération des popups
     var selectedPoint = document.getElementById("selectedPoint");
     var location = document.getElementById("location");
     for (var i = 0; i < points.length; i++)
-    { 
+    {
     	points[i].bindPopup(points[i].name + '<br/><a class="waves-effect waves-light btn white-text red" href="index.php?page=poi&selectedPoint='+points[i].id+'#'+points[i].id+'">Détails</a>');
+<<<<<<< HEAD
     	if( location.innerHTML == "true" && points[i].id == selectedPoint.innerHTML )
     	{
     		//Ici on modifie la couleur du marqueur
@@ -69,6 +82,11 @@ $(document).ready(function()
     			.setContent('Vous êtes ici :<br/>'+name)
     			.openOn(map);
     		//points[i].openPopup();
+=======
+    	if( location.innerHTML == "true")
+    	{
+
+>>>>>>> 403287d380f0d17616aeae584cda18cdc8981113
     	}
    		if( points[i].id == selectedPoint.innerHTML )
    		{
@@ -76,4 +94,3 @@ $(document).ready(function()
    		}
    	}
 });
-

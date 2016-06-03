@@ -50,4 +50,16 @@
 		$req = $bdd->prepare('DELETE FROM POINT WHERE ID_PT = :id;');
 		$req->execute(array('id'=> $id));
 	}
+	function get_autoincrement(){
+		global $bdd;
+		$req = $bdd->prepare('SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = "Navision" AND TABLE_NAME = "POINT";');
+		$req->execute();
+		$id = $req->fetchALL();
+		return $id;
+	}
+	function add_route($src,$dest){
+		global $bdd;
+		$req = $bdd->prepare('INSERT INTO `Navision`.`LIAISON` (`POI_ID_PT`, `ID_PT`, `DISTANCE`) VALUES (:src, :dest, NULL);');
+		$req->execute(array('src'=> $src, 'dest'=>$dest));
+	}
 ?>

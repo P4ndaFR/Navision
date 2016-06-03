@@ -5,6 +5,7 @@
 	include_once 'modele.php';
 	include_once 'login.php';
 	$points = get_points();
+	$liaisons = get_liaisons();
 	if(isset($_GET['etage'])){
 		$strings = explode(',',$_GET['etage']);
 		$_SESSION['etage']=$strings[0];
@@ -17,7 +18,7 @@
 					add_point($_SESSION['bat'],$_SESSION['etage'],$_POST['X'],$_POST['Y'],NULL,NULL,NULL,NULL);
 					unset($_POST['X']);
 					unset($_POST['Y']);
-					header('Location: ./?action=add');
+					header('Location: ./?page=add');
 					exit;
 				}else{
 					add_point($_SESSION['bat'],$_SESSION['etage'],$_POST['X'],$_POST['Y'],$_POST['nom'],$_POST['description'],NULL,NULL);
@@ -25,7 +26,7 @@
 					unset($_POST['description']);
 					unset($_POST['X']);
 					unset($_POST['Y']);
-					header('Location: ./?action=add');
+					header('Location: ./?page=add');
 					exit;
 			}
 				break;
@@ -52,6 +53,11 @@
 						header('Location: ./?page=remove');
 						exit;
 					break;
+				case 'route':
+						add_route($_POST['src'],$_POST['dest']);
+						header('Location: ./?page=route');
+						exit;
+					break;
 	}
 	}
 
@@ -69,6 +75,9 @@
 			case 'remove':
 				include_once 'vue/remove.php';
 			break;
+			case 'route':
+				include_once 'vue/route.php';
+			break;
 		}
 	}
 	else{
@@ -79,9 +88,3 @@
 		else include_once 'vue/vue.php';
 	}
 ?>
-<!--<pre>
-	<?php/* print_r($_GET);
-	print_r($_SESSION);
-	print_r($_POST);
-	print_r($points)*/?>
-</pre>-->
