@@ -32,8 +32,7 @@
             <ul class="side-nav" id="mobile-demo">
                 <li><a href="index.php?page=scan">Où suis-je ?</a></li>
                 <li><a href="index.php?page=poi">Points d'intérêts</a></li>
-                <li><a href="index.php?page=etage">Plan de l'école</a></li>
+                <li><a href="index.php?page=batiment">Plan de l'école</a></li>
             </ul>
 		</div>
 	</nav>
-

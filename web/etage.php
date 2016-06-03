@@ -18,8 +18,6 @@
                                 echo '<td>'.$points[$i]['NIVEAU'].'</td>';
                                 echo '</tr>';
                             }
-                            echo
-                            '<p id="selectedPoint" style="display:none;">'.$_GET['selectedPoint'].'</p>';
                             if (isset($_GET['location']))
                             {
                             echo
