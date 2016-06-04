@@ -18,9 +18,13 @@
                                 echo '<td>'.$points[$i]['NIVEAU'].'</td>';
                                 echo '</tr>';
                             }
+<<<<<<< HEAD
                             echo
                             '<p id="selectedPoint" style="display:none;">'.$_GET['selectedPoint'].'</p>';
                            
+=======
+
+>>>>>>> d147e33a75967a8d374dac77f6a002b6b5a4eff5
                             echo
                             '<p id="selectedPoint" style="display:none;">'.$_GET['selectedPoint'].'</p>
                             <p id="location" style="display:none;">'.$_GET['location'].'</p>';
@@ -34,6 +38,18 @@
   													<td><?php echo $_SESSION['etage']?></td>
   												</tr>
   											</table>
+                        <?php
+                          if(isset($_SESSION['path'])){
+                            $path = $_SESSION['path'];
+                            echo '<table id="path" style="display:none">';
+                            for($i = 0;$i<count($path);$i++){
+                              echo '<tr>';
+                              echo '<td>'.$path[$i].'</td>';
+                              echo '</tr>';
+                            }
+                            echo '</table>';
+                          }
+                        ?>
 
                         <div class="col s12">
                             <div id="mapid"></div>
