@@ -18,10 +18,13 @@
                                 echo '<td>'.$points[$i]['NIVEAU'].'</td>';
                                 echo '</tr>';
                             }
-                
+                            echo
+                            '<p id="selectedPoint" style="display:none;">'.$_GET['selectedPoint'].'</p>';
+                           
                             echo
                             '<p id="selectedPoint" style="display:none;">'.$_GET['selectedPoint'].'</p>
                             <p id="location" style="display:none;">'.$_GET['location'].'</p>';
+                            
 
                             //echo '<pre>'.print_r($points).'</pre>';
                         ?>
