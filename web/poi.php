@@ -12,7 +12,7 @@
       					<div class="collapsible-body">
       						<p>'.$points[$i]['DESCRIPTION'].'</p>
       						<a class="waves-effect waves-light btn red" href="index.php?page=etage&selectedPoint='.$points[$i]['ID_PT'].'">Voir sur la carte</a>
-      						<a class="waves-effect waves-light btn red">Aller à</a>
+      						<a class="waves-effect waves-light btn red" href="index.php?page=scan&dest='.$points[$i]['ID_PT'].'">Aller à</a>
       					</div>
     				</li>';
     	}

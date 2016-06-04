@@ -1,8 +1,10 @@
 <?php
+	session_start();
 	// Initialisation
 	$bdd = new PDO('mysql:host=home.apremel.fr;dbname=Navision;charset=utf8', 'Navision', 'Navision');
 
 	include_once('modele.php');
+	include_once('dijkstra.php');
 	$points = get_points();
 	$liaisons = get_liaisons();
 	if(isset($_GET['etage'])){
@@ -12,6 +14,7 @@
 	}
 	if(isset($_GET['selectedPoint'])){
 		$array = get_niveau($_GET['selectedPoint']);
+		$_SESSION['source']=$_GET['selectedPoint'];
 		$_SESSION['bat']=$array[0][0];
 		echo $array[0][0];
 		$_SESSION['etage']=$array[0][1];
@@ -27,12 +30,17 @@
 		{
 
 			case 'etage':
+			if(isset($_SESSION['source']) && isset($_SESSION['dest'])){
+				find_path($_SESSION['source'],$_SESSION['dest']);
+				$_SESSION['path']=read_path();
+				}
 				include_once('etage.php');
 			break;
 			case 'batiment':
 				include_once('batiment.php');
 			break;
 			case 'scan':
+				if(isset($_GET['dest']))$_SESSION['dest']=$_GET['dest'];
 				include_once('scan.php');
 			break;
 			case 'poi':
