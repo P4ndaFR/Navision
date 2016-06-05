@@ -53,6 +53,27 @@ $(document).ready(function()
 
 	L.imageOverlay(url, bounds).addTo(map);
 
+	var path = document.getElementById("path").rows;
+	var nbpoints = path.length;
+	var tab_points = [];
+	for(var k = 0; k<nbpoints; k++){
+		tab_points[k] = new Object();
+		for(i = 0; i<points.length;i++){
+			if(Number(path[k].cells[0].innerHTML) == Number(points[i].id)){
+				tab_points[k].src = points[i].getLatLng();
+			}
+		}
+		for(i = 0; i<points.length;i++){
+			//alert(Number(path[k+1].cells[0].innerHTML) == Number(points[i].id));
+			if(path[k+1] != undefined && (Number(path[k+1].cells[0].innerHTML) == Number(points[i].id))){
+				tab_points[k].dest = points[i].getLatLng();
+			}
+		}
+		if(typeof tab_points[k].src != 'undefined' && typeof tab_points[k].dest != 'undefined'){
+			var polygon = L.polygon([tab_points[k].src,tab_points[k].dest]).addTo(map);
+		}
+	}
+
 	// tell leaflet that the map is exactly as big as the image
 	map.setMaxBounds(bounds);
 
