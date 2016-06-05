@@ -63,7 +63,7 @@ $(document).ready(function()
     {
     	points[i].bindPopup(points[i].name + '<br/><a class="waves-effect waves-light btn white-text red" href="index.php?page=poi&selectedPoint='+points[i].id+'#'+points[i].id+'">Détails</a>');
     	//alert(location.innerHTML);
-    	if( location.innerHTML == "true" && points[i].id == selectedPoint.innerHTML )
+    	if( location.innerHTML != undefined && location.innerHTML == "true" && points[i].id == selectedPoint.innerHTML )
     		{
     		//alert("test");
     		//Ici on modifie la couleur du marqueur
