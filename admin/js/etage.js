@@ -62,7 +62,7 @@ $(document).ready(function()
 				tab_liaisons[k].dest = tab_points[i].getLatLng();
 			}
 		}
-		if(tab_liaisons[k].src != 'undefined' && tab_liaisons[k].dest != 'undefined'){
+		if(typeof tab_liaisons[k].src != 'undefined' && typeof tab_liaisons[k].dest != 'undefined'){
 			var polygon = L.polygon([tab_liaisons[k].src,tab_liaisons[k].dest]).addTo(map);}
 	}
 
