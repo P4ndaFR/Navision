@@ -17,7 +17,7 @@
                                 echo '<td>'.$points[$i]['CODE_BAT'].'</td>';
                                 echo '<td>'.$points[$i]['NIVEAU'].'</td>';
                                 echo '</tr>';
-                            }
+                            } 
                               echo'<p id="selectedPoint" style="display:none;">'.$_GET['selectedPoint'].'</p>';
                               echo '<p id="location" style="display:none;">'.$_GET['location'].'</p>';
 

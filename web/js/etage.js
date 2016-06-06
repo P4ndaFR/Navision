@@ -2,7 +2,28 @@ $(document).ready(function()
 {
 	// Using leaflet.js to pan and zoom a big image.
 	// See also: http://kempe.net/blog/2014/06/14/leaflet-pan-zoom-image.html
+	function ajax(callback)
+	{
+		var xhttp = new XMLHttpRequest();
+  		xhttp.onreadystatechange = function() 
+  		{
+  			//Si la requête est prête( readystate à 4) et la page est trouvée ( HTTP status à 200)
+     	 	if (xhttp.readyState == 4 && xhttp.status == 200)
+    		{
+    			//Conversion de l'objet JSON en chaine de caractère
+				var parsed = JSON.parse(xhttp.responseText);
+				//Affichage d'un élement du tableau,ici le 10ème.
+        		callback(parsed);
+    		}
+  		};	
+ 		xhttp.open("GET", "data.php", true);
+ 		xhttp.send();
+    	
+	};
 
+	function createMap(points)
+	{
+		console.log(points);
 	// create the slippy map
 	var map = L.map('mapid', {
 	  minZoom: 1,
@@ -27,6 +48,10 @@ $(document).ready(function()
 	var northEast = map.unproject([w, 0], map.getMaxZoom()-1);
 	var bounds = new L.LatLngBounds(southWest, northEast);
 
+
+
+	var selectedPoint = document.getElementById("selectedPoint");
+    var location = document.getElementById("location");
 	// add the image overlay,
 	// so that it covers the entire map
 	//L.marker([-50, 100	]).addTo(map)
@@ -77,9 +102,7 @@ if(document.getElementById('path') != null){
 	// tell leaflet that the map is exactly as big as the image
 	map.setMaxBounds(bounds);
 
-	//génération des popups
-    	var selectedPoint = document.getElementById("selectedPoint");
-    	var location = document.getElementById("location");
+	
 
     for (var i = 0; i < points.length; i++)
     {
@@ -109,4 +132,7 @@ if(document.getElementById('path') != null){
    			points[i].openPopup();
    		}
 	}
+	};
+
+	ajax(createMap);
 });

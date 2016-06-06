@@ -34,13 +34,6 @@
 		$etages = $req->fetchALL();
 		return $etages;
 	}
-	function get_niveau($id){
-		global $bdd;
-		$req = $bdd->prepare('SELECT CODE_BAT,NIVEAU FROM `POINT` WHERE ID_PT = :id;');
-		$req->execute(array('id' => $id));
-		$etage = $req->fetchALL();
-		return $etage;
-	}
 	function add_point($bat,$etage,$X,$Y,$nom,$description){
 		global $bdd;
 		$req = $bdd->prepare('INSERT INTO `Navision`.`POINT` (`ID_PT`, `CODE_BAT`, `NIVEAU`, `X`, `Y`, `NOM`, `DESCRIPTION`, `QR_CODE`, `URL_QRCODE`)
@@ -54,6 +47,8 @@
 	}
 	function remove_point($id){
 		global $bdd;
+		$req = $bdd->prepare('DELETE FROM LIAISON WHERE `ID_PT` = :id || `POI_ID_PT` = :id ;');
+		$req->execute(array('id'=> $id,'id'=> $id));
 		$req = $bdd->prepare('DELETE FROM POINT WHERE ID_PT = :id;');
 		$req->execute(array('id'=> $id));
 	}
