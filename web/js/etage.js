@@ -65,7 +65,7 @@ $(document).ready(function()
 		}
 		for(i = 0; i<points.length;i++){
 			//alert(Number(path[k+1].cells[0].innerHTML) == Number(points[i].id));
-			if(path[k+1] != undefined && (Number(path[k+1].cells[0].innerHTML) == Number(points[i].id))){
+			if(path[k+1] != 'undefined' && (Number(path[k+1].cells[0].innerHTML) == Number(points[i].id))){
 				tab_points[k].dest = points[i].getLatLng();
 			}
 		}
@@ -84,7 +84,7 @@ $(document).ready(function()
     {
     	points[i].bindPopup(points[i].name + '<br/><a class="waves-effect waves-light btn white-text red" href="index.php?page=poi&selectedPoint='+points[i].id+'#'+points[i].id+'">Détails</a>');
     	//alert(location.innerHTML);
-    	if( location.innerHTML != undefined && location.innerHTML == "true" && points[i].id == selectedPoint.innerHTML )
+    	if( location.innerHTML != 'undefined' && location.innerHTML == "true" && points[i].id == selectedPoint.innerHTML )
     		{
     		//alert("test");
     		//Ici on modifie la couleur du marqueur
