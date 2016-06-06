@@ -77,7 +77,8 @@ $(document).ready(function()
 	}
 
 	L.imageOverlay(url, bounds).addTo(map);
-if(document.getElementById('path') != null){
+
+	if(document.getElementById('path') != null){
 	var path = document.getElementById("path").rows;
 	var nbpoints = path.length;
 	var tab_points = [];
