@@ -11,6 +11,7 @@
 
     <!-- Import Leafletjs -->
      <link rel="stylesheet" href="leaflet/leaflet.css" />
+     <link rel="stylesheet" href="css/style.css" />
 
     <link type="text/css" rel="stylesheet" href="css/style.css"/>
     <link type="text/css" rel="stylesheet" href="css/etage.css"/>

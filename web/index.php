@@ -6,6 +6,7 @@
 	include_once('modele.php');
 	include_once('dijkstra.php');
 	$points = get_points();
+	$_SESSION['points'] = $points;
 	$liaisons = get_liaisons();
 	if(isset($_GET['etage'])){
 		$strings = explode(',',$_GET['etage']);
@@ -16,7 +17,13 @@
 		$array = get_niveau($_GET['selectedPoint']);
 		$_SESSION['source']=$_GET['selectedPoint'];
 		$_SESSION['bat']=$array[0][0];
+
+		//echo $array[0][0];
 		$_SESSION['etage']=$array[0][1];
+		//echo $array[0][1];
+
+		$_SESSION['etage']=$array[0][1];
+
 	}
 
 	include_once('dijkstra.php');
@@ -52,4 +59,5 @@
 	{
 		include_once('accueil.php');
 	}
+
 ?>
