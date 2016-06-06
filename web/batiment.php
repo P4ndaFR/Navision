@@ -19,7 +19,7 @@
                       		</div>
                       		<div class="row">
                       			<div class="col s4 offset-s4">
-                      				<button id="submit" class="btn waves-effect waves-light red" type="submit" name="page" value="etage">Submit
+                      				<button id="submit" class="btn waves-effect waves-light red" type="submit" name="page" value="etage">Afficher
                       					<i class="material-icons right">send</i>
                       				</button>
                       			</div>

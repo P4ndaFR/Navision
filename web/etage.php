@@ -18,7 +18,7 @@
                               echo '</tr>';
                             }
                             echo '</table>';
-                          }
+                          } 
                         ?>
 
                         <div class="col s12">

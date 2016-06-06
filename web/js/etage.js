@@ -34,10 +34,13 @@ $(document).ready(function()
 	  crs: L.CRS.Simple
 	});
 
-	var bat = points[points.length-4];
-	var	etage = points[points.length-3];
-	var selectedPoint = points[points.length-2];
-    var location = points[points.length-1];
+	var bat = points[points.length-5];
+	var	etage = points[points.length-4];
+	var selectedPoint = points[points.length-3];
+    var location = points[points.length-2];
+    var path = points[points.length-1];
+
+    console.log(path);
 	// dimensions of the image
 	var w = 1600,
     	h = 1050,
@@ -51,7 +54,7 @@ $(document).ready(function()
 	//Récupération points depuis JSON (taille du tableau -4 pour les 4 datas à la fin du tableau)
 	var marker = [];
 	var j = 0;
-	for(var i = 0 ; i < points.length-4; i++)
+	for(var i = 0 ; i < points.length-5; i++)
 	{
 			if(points[i]['CODE_BAT'] == bat && points[i]['NIVEAU'] == etage)
 			{
@@ -67,9 +70,9 @@ $(document).ready(function()
 
 	L.imageOverlay(url, bounds).addTo(map);
 
-	if(document.getElementById('path') != null)
+	if( path != null)
 	{
-		var path = document.getElementById("path").rows;
+		
 		var nbpoints = path.length;
 		var tab_points = [];
 		for(var k = 0; k<nbpoints; k++)
@@ -77,14 +80,14 @@ $(document).ready(function()
 			tab_points[k] = new Object();
 			for(i = 0; i<marker.length;i++)
 			{
-				if(Number(path[k].cells[0].innerHTML) == Number(marker[i].id)){
+				if(Number(path[k]) == Number(marker[i].id)){
 					tab_points[k].src = marker[i].getLatLng();
 				}
 			}
 			for(i = 0; i<marker.length;i++)
 			{
 				//alert(Number(path[k+1].cells[0].innerHTML) == Number(points[i].id));
-				if(path[k+1] != 'undefined' && (Number(path[k+1].cells[0].innerHTML) == Number(marker[i].id))){
+				if(path[k+1] != 'undefined' && (Number(path[k+1]) == Number(marker[i].id))){
 					tab_points[k].dest = marker[i].getLatLng();
 				}
 			}
