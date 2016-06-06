@@ -9,16 +9,7 @@
                         <?php
                           $_SESSION['selectedPoint']=$_GET['selectedPoint'];
                           $_SESSION['location']=$_GET['location'];
-                          if(isset($_SESSION['path'])){
-                            $path = $_SESSION['path'];
-                            echo '<table id="path" style="display:none">';
-                            for($i = 0;$i<count($path);$i++){
-                              echo '<tr>';
-                              echo '<td>'.$path[$i].'</td>';
-                              echo '</tr>';
-                            }
-                            echo '</table>';
-                          } 
+                         
                         ?>
 
                         <div class="col s12">
