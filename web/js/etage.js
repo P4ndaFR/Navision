@@ -60,6 +60,7 @@ $(document).ready(function()
 			{
 				marker[j] = L.marker([-points[i]['Y'],points[i]['X']],{title:points[i]['ID_PT']});
 				marker[j].addTo(map);
+				
 				marker[j].y = points[i]['Y'];
 				marker[j].x = points[i]['X'];
 				marker[j].id = points[i]['ID_PT'];
