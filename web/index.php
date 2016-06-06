@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	// Initialisation
-	$bdd = new PDO('mysql:host=home.apremel.fr:3306;dbname=Navision;charset=utf8', 'Navision', 'Navision');
+	$bdd = new PDO('mysql:host=home.apremel.fr;dbname=Navision;charset=utf8', 'Navision', 'Navision');
 
 	include_once('modele.php');
 	include_once('dijkstra.php');
