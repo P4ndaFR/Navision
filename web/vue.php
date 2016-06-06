@@ -27,7 +27,7 @@
     <script type="text/javascript" src="js/main.js"></script>
 	<nav>
 		<div class="nav-wrapper red">
-            <a href="" class="brand-logo center"><i class="material-icons">navigation</i></a>
+            <a href="./" class="brand-logo center"><i class="material-icons">navigation</i></a>
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="side-nav" id="mobile-demo">
                 <li><a href="index.php?page=scan">Où suis-je ?</a></li>

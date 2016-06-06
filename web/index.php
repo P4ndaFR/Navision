@@ -45,6 +45,9 @@
 				include_once('scan.php');
 			break;
 			case 'poi':
+				unset($_SESSION['source']);
+				unset($_SESSION['dest']);
+				unset($_session['path']);
 				include_once('poi.php');
 			break;
 		}
@@ -54,3 +57,10 @@
 		include_once('accueil.php');
 	}
 ?>
+<pre>
+<?php
+	print_r($_SESSION);
+	print_r($_POST);
+	print_r($_GET);
+?>
+</pre>

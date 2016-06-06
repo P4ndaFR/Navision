@@ -22,7 +22,7 @@
                             echo
                             '<p id="selectedPoint" style="display:none;">'.$_GET['selectedPoint'].'</p>
                             <p id="location" style="display:none;">'.$_GET['location'].'</p>';
-                            
+
 
                             //echo '<pre>'.print_r($points).'</pre>';
                         ?>
@@ -35,7 +35,7 @@
                         <?php
                           if(isset($_SESSION['path'])){
                             $path = $_SESSION['path'];
-                            echo '<table id="path" style="display:none">';
+                            echo '<table id="path">';
                             for($i = 0;$i<count($path);$i++){
                               echo '<tr>';
                               echo '<td>'.$path[$i].'</td>';

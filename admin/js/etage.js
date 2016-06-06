@@ -62,8 +62,8 @@ $(document).ready(function()
 				tab_liaisons[k].dest = tab_points[i].getLatLng();
 			}
 		}
-
-		var polygon = L.polygon([tab_liaisons[k].src,tab_liaisons[k].dest]).addTo(map);
+		if(tab_liaisons[k].src != 'undefined' && tab_liaisons[k].dest != 'undefined'){
+			var polygon = L.polygon([tab_liaisons[k].src,tab_liaisons[k].dest]).addTo(map);}
 	}
 
 	// tell leaflet that the map is exactly as big as the image
