@@ -1,24 +1,4 @@
-                        <?php
-                            echo '<table id="points" style="display:none;">';
-                            for($i = 0 ; $i < count($points) ; $i++)
-                            {
-                                echo '<tr>';
-                                echo '<td>'.$points[$i]['X'].'</td>';
-                                echo '<td>'.$points[$i]['Y'].'</td>';
-                                echo '<td>'.$points[$i]['ID_PT'].'</td>';
-                                echo '<td>'.$points[$i]['NOM'].'</td>';
-                                echo '<td>'.$points[$i]['DESCRIPTION'].'</td>';
-                                echo '<td>'.$points[$i]['CODE_BAT'].'</td>';
-                                echo '<td>'.$points[$i]['NIVEAU'].'</td>';
-                                echo '</tr>';
-                            }
-                        ?>
-                        <table id="session" style="display:none;">
-  												<tr>
-  													<td><?php echo $_SESSION['bat']?></td>
-  													<td><?php echo $_SESSION['etage']?></td>
-  												</tr>
-  											</table>
+
                         <form>
                       		<div class="row">
                       			<div class="input-field col s6 offset-s3">

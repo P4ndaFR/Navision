@@ -16,7 +16,6 @@
       					</div>
     				</li>';
     	}
-    	//echo '<p id="selectedPoint" style="display:none;">'.$_GET['selectedPoint'].'</p>';
 	?>
 	</ul>
 	</body>

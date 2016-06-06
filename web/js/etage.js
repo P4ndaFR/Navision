@@ -33,12 +33,12 @@ $(document).ready(function()
 	  zoom: 0.1,
 	  crs: L.CRS.Simple
 	});
-	// dimensions of the image
-	var bat = document.getElementById('session').rows[0].cells[0].innerHTML;
-	//alert(bat);
-	var	etage = document.getElementById('session').rows[0].cells[1].innerHTML;
-	//alert(etage);
 
+	var bat = points[points.length-4];
+	var	etage = points[points.length-3];
+	var selectedPoint = points[points.length-2];
+    var location = points[points.length-1];
+	// dimensions of the image
 	var w = 1600,
     	h = 1050,
     	url = 'data/etage'+etage+'.png';
@@ -48,30 +48,19 @@ $(document).ready(function()
 	var northEast = map.unproject([w, 0], map.getMaxZoom()-1);
 	var bounds = new L.LatLngBounds(southWest, northEast);
 
-
-
-	var selectedPoint = document.getElementById("selectedPoint");
-    var location = document.getElementById("location");
-	// add the image overlay,
-	// so that it covers the entire map
-	//L.marker([-50, 100	]).addTo(map)
-	//Récupération points depuis html + création des marqueurs
-	var arrayRows = document.getElementById("points").rows;
-	var rowsNb = arrayRows.length;
-	var points = [];
+	//Récupération points depuis JSON (taille du tableau -4 pour les 4 datas à la fin du tableau)
+	var marker = [];
 	var j = 0;
-	for(var i = 0 ; i < rowsNb; i++)
+	for(var i = 0 ; i < points.length-4; i++)
 	{
-			//alert(arrayRows[i].cells[5].innerHTML);
-			//alert(arrayRows[i].cells[6].innerHTML);
-
-			if(arrayRows[i].cells[5].innerHTML == bat && arrayRows[i].cells[6].innerHTML == etage){
-				points[j] = L.marker([-arrayRows[i].cells[1].innerHTML,arrayRows[i].cells[0].innerHTML],{title:arrayRows[i].cells[2].innerHTML}).addTo(map);
-				points[j].y = arrayRows[i].cells[1].innerHTML;
-				points[j].x = arrayRows[i].cells[0].innerHTML;
-				points[j].id = arrayRows[i].cells[2].innerHTML;
-				points[j].name = arrayRows[i].cells[3].innerHTML;
-				points[j].description = arrayRows[i].cells[4].innerHTML;
+			if(points[i]['CODE_BAT'] == bat && points[i]['NIVEAU'] == etage)
+			{
+				marker[j] = L.marker([-points[i]['Y'],points[i]['X']],{title:points[i]['ID_PT']}).addTo(map);
+				marker[j].y = points[i]['Y'];
+				marker[j].x = points[i]['X'];
+				marker[j].id = points[i]['ID_PT'];
+				marker[j].name = points[i]['NOM'];
+				marker[j].description = points[i]['DESCRIPTION'];
 				j++;
 			}
 	}
@@ -86,17 +75,17 @@ $(document).ready(function()
 		for(var k = 0; k<nbpoints; k++)
 		{
 			tab_points[k] = new Object();
-			for(i = 0; i<points.length;i++)
+			for(i = 0; i<marker.length;i++)
 			{
-				if(Number(path[k].cells[0].innerHTML) == Number(points[i].id)){
-					tab_points[k].src = points[i].getLatLng();
+				if(Number(path[k].cells[0].innerHTML) == Number(marker[i].id)){
+					tab_points[k].src = marker[i].getLatLng();
 				}
 			}
-			for(i = 0; i<points.length;i++)
+			for(i = 0; i<marker.length;i++)
 			{
 				//alert(Number(path[k+1].cells[0].innerHTML) == Number(points[i].id));
-				if(path[k+1] != 'undefined' && (Number(path[k+1].cells[0].innerHTML) == Number(points[i].id))){
-					tab_points[k].dest = points[i].getLatLng();
+				if(path[k+1] != 'undefined' && (Number(path[k+1].cells[0].innerHTML) == Number(marker[i].id))){
+					tab_points[k].dest = marker[i].getLatLng();
 				}
 			}
 			if(typeof tab_points[k].src != 'undefined' && typeof tab_points[k].dest != 'undefined'){
@@ -109,32 +98,32 @@ $(document).ready(function()
 
 	
 
-    for (var i = 0; i < points.length; i++)
+    for (var i = 0; i < marker.length; i++)
     {
-    	points[i].bindPopup(points[i].name + '<br/><a class="waves-effect waves-light btn white-text red" href="index.php?page=poi&selectedPoint='+points[i].id+'#'+points[i].id+'">Détails</a>');
+    	marker[i].bindPopup(marker[i].name + '<br/><a class="waves-effect waves-light btn white-text red" href="index.php?page=poi&selectedPoint='+marker[i].id+'#'+marker[i].id+'">Détails</a>');
     	//alert(location.innerHTML);
-    	if( location.innerHTML != 'undefined' && location.innerHTML == "true" && points[i].id == selectedPoint.innerHTML )
+    	if( location == "true" && marker[i].id == selectedPoint )
     		{
     		//alert("test");
     		//Ici on modifie la couleur du marqueur
-    		var x = points[i].x;
-    		var y = points[i].y;
-    		var name = points[i].name;
-    		map.removeLayer(points[i]);
-    		points[i] = L.marker([-y,x], {
+    		var x = marker[i].x;
+    		var y = marker[i].y;
+    		var name = marker[i].name;
+    		map.removeLayer(marker[i]);
+    		marker[i] = L.marker([-y,x], {
   				icon: L.spriteIcon('red')
 			}).addTo(map);
     		//Ici on modifie le contenu du popup
     		//popup = points[i].bindPopup('Vous êtes ici :<br/>'+name);
     		var popup = L.popup({offset : [1,-24]})
-    			.setLatLng(points[i].getLatLng())
+    			.setLatLng(marker[i].getLatLng())
     			.setContent('Vous êtes ici :<br/>'+name)
     			.openOn(map);
     		//points[i].openPopup();
 		}
-   		if( points[i].id == selectedPoint.innerHTML )
+   		if(  marker[i].id == selectedPoint )
    		{
-   			points[i].openPopup();
+   			marker[i].openPopup();
    		}
 	}
 	};
