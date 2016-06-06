@@ -7,6 +7,8 @@
 			{
 				$activity = "active";
 			}
+			if($points[$i]['POI'] == 1)
+			{
 			echo ' <li id="'.$points[$i]['ID_PT'].'">
       					<div class="collapsible-header '.$activity.'">'.$points[$i]['NOM'].'</div>
       					<div class="collapsible-body">
@@ -15,6 +17,7 @@
       						<a class="waves-effect waves-light btn red" href="index.php?page=scan&dest='.$points[$i]['ID_PT'].'">Aller à</a>
       					</div>
     				</li>';
+    		}
     	}
 	?>
 	</ul>

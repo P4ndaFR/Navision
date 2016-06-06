@@ -58,7 +58,8 @@ $(document).ready(function()
 	{
 			if(points[i]['CODE_BAT'] == bat && points[i]['NIVEAU'] == etage)
 			{
-				marker[j] = L.marker([-points[i]['Y'],points[i]['X']],{title:points[i]['ID_PT']}).addTo(map);
+				marker[j] = L.marker([-points[i]['Y'],points[i]['X']],{title:points[i]['ID_PT']});
+				marker[j].addTo(map);
 				marker[j].y = points[i]['Y'];
 				marker[j].x = points[i]['X'];
 				marker[j].id = points[i]['ID_PT'];
