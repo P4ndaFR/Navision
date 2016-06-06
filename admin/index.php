@@ -15,13 +15,13 @@
 		switch ($_POST['action']) {
 			case 'add':
 				if(!isset($_POST['nom'])){
-					add_point($_SESSION['bat'],$_SESSION['etage'],$_POST['X'],$_POST['Y'],NULL,NULL,NULL,NULL);
+					add_point($_SESSION['bat'],$_SESSION['etage'],$_POST['X'],$_POST['Y'],NULL,NULL,false);
 					unset($_POST['X']);
 					unset($_POST['Y']);
 					header('Location: ./?page=add');
 					exit;
 				}else{
-					add_point($_SESSION['bat'],$_SESSION['etage'],$_POST['X'],$_POST['Y'],$_POST['nom'],$_POST['description'],NULL,NULL);
+					add_point($_SESSION['bat'],$_SESSION['etage'],$_POST['X'],$_POST['Y'],$_POST['nom'],$_POST['description'],true);
 					unset($_POST['nom']);
 					unset($_POST['description']);
 					unset($_POST['X']);
@@ -33,13 +33,13 @@
 
 			case 'modify':
 				if(!isset($_POST['nom'])){
-					modify_point($_GET['pt'],$_POST['X'],$_POST['Y'],NULL,NULL);
+					modify_point($_GET['pt'],$_POST['X'],$_POST['Y'],NULL,NULL,false);
 					unset($_POST['X']);
 					unset($_POST['Y']);
 					header('Location: ./?page=modify');
 					exit;
 				}else{
-					modify_point($_GET['pt'],$_POST['X'],$_POST['Y'],$_POST['nom'],$_POST['description']);
+					modify_point($_GET['pt'],$_POST['X'],$_POST['Y'],$_POST['nom'],$_POST['description'],true);
 					unset($_POST['nom']);
 					unset($_POST['description']);
 					unset($_POST['X']);

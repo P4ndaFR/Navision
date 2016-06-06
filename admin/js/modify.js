@@ -93,6 +93,8 @@ $(document).ready(function()
 					document.getElementsByName('X')[1].value = lng;
 					document.getElementsByName('Y')[0].value = -lat;
 					document.getElementsByName('Y')[1].value = -lat;
+					document.getElementById('nom').value = this.name;
+					document.getElementById('description').value = this.description;
 				});
 			}
 
