@@ -33,6 +33,7 @@
  		$req->execute(array('id' => $id));
 		$etage = $req->fetchALL();
 		return $etage;
+	}
 	function get_etages($bat){
 		global $bdd;
 		$req = $bdd->prepare('SELECT ETAGE.`CODE_BAT`,`NIVEAU`,`NOM`,`URL_PLAN` FROM `ETAGE`,BATIMENTS WHERE ETAGE.CODE_BAT = BATIMENTS.CODE_BAT && NOM_BAT = :nom_bat;');
