@@ -1,7 +1,7 @@
 <?php
 	if(!isset($_SESSION))session_start();
 	if(!isset($_SESSION['login']))$_SESSION=FALSE;
-	$bdd = new PDO('mysql:host=localhost;dbname=Navision;charset=utf8', 'Navision', 'Navision');
+	$bdd = new PDO('mysql:host=home.apremel.fr;dbname=Navision;charset=utf8', 'Navision', 'Navision');
 	include_once 'modele.php';
 	include_once 'login.php';
 	$points = get_points();

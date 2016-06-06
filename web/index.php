@@ -6,6 +6,7 @@
 	include_once('modele.php');
 	include_once('dijkstra.php');
 	$points = get_points();
+	$_SESSION['points']=$points;
 	$liaisons = get_liaisons();
 	if(isset($_GET['etage'])){
 		$strings = explode(',',$_GET['etage']);

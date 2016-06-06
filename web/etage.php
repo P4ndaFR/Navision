@@ -48,6 +48,7 @@
                         <div class="col s12">
                             <div id="mapid"></div>
                         </div>
+                        <p id="test"></p>
                 </div>
 
 </div>
