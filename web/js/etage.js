@@ -52,7 +52,7 @@ $(document).ready(function()
 	}
 
 	L.imageOverlay(url, bounds).addTo(map);
-
+if(document.getElementById('path') != null){
 	var path = document.getElementById("path").rows;
 	var nbpoints = path.length;
 	var tab_points = [];
@@ -73,13 +73,14 @@ $(document).ready(function()
 			var polygon = L.polygon([tab_points[k].src,tab_points[k].dest]).addTo(map);
 		}
 	}
-
+}
 	// tell leaflet that the map is exactly as big as the image
 	map.setMaxBounds(bounds);
 
 	//génération des popups
-    var selectedPoint = document.getElementById("selectedPoint");
-    var location = document.getElementById("location");
+    	var selectedPoint = document.getElementById("selectedPoint");
+    	var location = document.getElementById("location");
+
     for (var i = 0; i < points.length; i++)
     {
     	points[i].bindPopup(points[i].name + '<br/><a class="waves-effect waves-light btn white-text red" href="index.php?page=poi&selectedPoint='+points[i].id+'#'+points[i].id+'">Détails</a>');

@@ -47,6 +47,8 @@
 	}
 	function remove_point($id){
 		global $bdd;
+		$req = $bdd->prepare('DELETE FROM LIAISON WHERE `ID_PT` = :id || `POI_ID_PT` = :id ;');
+		$req->execute(array('id'=> $id,'id'=> $id));
 		$req = $bdd->prepare('DELETE FROM POINT WHERE ID_PT = :id;');
 		$req->execute(array('id'=> $id));
 	}

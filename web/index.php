@@ -17,9 +17,13 @@
 		$array = get_niveau($_GET['selectedPoint']);
 		$_SESSION['source']=$_GET['selectedPoint'];
 		$_SESSION['bat']=$array[0][0];
+<<<<<<< HEAD
 		//echo $array[0][0];
 		$_SESSION['etage']=$array[0][1];
 		//echo $array[0][1];
+=======
+		$_SESSION['etage']=$array[0][1];
+>>>>>>> cafa9d311e33838c0e35466c8c9b772ea718b319
 	}
 
 	include_once('dijkstra.php');
@@ -47,7 +51,6 @@
 			case 'poi':
 				unset($_SESSION['source']);
 				unset($_SESSION['dest']);
-				unset($_session['path']);
 				include_once('poi.php');
 			break;
 		}
@@ -57,4 +60,7 @@
 		include_once('accueil.php');
 	}
 ?>
+<<<<<<< HEAD
 
+=======
+>>>>>>> cafa9d311e33838c0e35466c8c9b772ea718b319
