@@ -18,11 +18,8 @@
                                 echo '<td>'.$points[$i]['NIVEAU'].'</td>';
                                 echo '</tr>';
                             }
-
-                            echo
-                            '<p id="selectedPoint" style="display:none;">'.$_GET['selectedPoint'].'</p>
-                            <p id="location" style="display:none;">'.$_GET['location'].'</p>';
-
+                              echo'<p id="selectedPoint" style="display:none;">'.$_GET['selectedPoint'].'</p>';
+                              echo '<p id="location" style="display:none;">'.$_GET['location'].'</p>';
 
                             //echo '<pre>'.print_r($points).'</pre>';
                         ?>
@@ -35,7 +32,7 @@
                         <?php
                           if(isset($_SESSION['path'])){
                             $path = $_SESSION['path'];
-                            echo '<table id="path">';
+                            echo '<table id="path" style="display:none">';
                             for($i = 0;$i<count($path);$i++){
                               echo '<tr>';
                               echo '<td>'.$path[$i].'</td>';

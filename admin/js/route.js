@@ -61,8 +61,12 @@ $(document).ready(function()
 				tab_liaisons[k].dest = tab_points[i].getLatLng();
 			}
 		}
-
-		var polygon = L.polygon([tab_liaisons[k].src,tab_liaisons[k].dest],{color:"#ff0000"}).addTo(map);
+		alert(typeof tab_liaisons[k].src != 'undefined' || typeof tab_liaisons[k].dest != 'undefined');
+		alert(typeof tab_liaisons[k].src != 'undefined');
+		alert(typeof tab_liaisons[k].dest != 'undefined');
+		if(typeof tab_liaisons[k].src != 'undefined' || typeof tab_liaisons[k].dest != 'undefined'){
+			var polygon = L.polygon([tab_liaisons[k].src,tab_liaisons[k].dest]).addTo(map);
+		}
 	}
 
 	// tell leaflet that the map is exactly as big as the image
