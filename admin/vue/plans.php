@@ -90,7 +90,6 @@
 			</div>
 			<div id="qrcode"><p>Sélectionner un point pour avoir le qrcode a imprimer</p></div>
 		</div>
-		</div>
 	</div>
 </body>
 </html>
