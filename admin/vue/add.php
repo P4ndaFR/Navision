@@ -93,11 +93,11 @@
 							<div class="row">
 								<div class="input-field col s4">
 									<input placeholder="Abscise X" id="X1" name="X" type="text" class="validate X">
-									<label for="X">X:</label>
+									<label for="X1">X:</label>
 								</div>
 								<div class="input-field col s4">
 									<input placeholder="Ordonné Y" id="Y1" name="Y" type="text" class="validate Y">
-									<label for="Y">Y:</label>
+									<label for="Y1">Y:</label>
 								</div>
 								<div class="input-field col s4">
 									<input placeholder="Nom" id="nom" name="nom" type="text" class="validate">
@@ -124,13 +124,13 @@
 							<div class="row">
 								<div class="input-field col s6 offset-s3">
 									<input placeholder="Abscise X" id="X2" name="X" type="text" class="validate X">
-									<label for="X">X:</label>
+									<label for="X2">X:</label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="input-field col s6 offset-s3">
 									<input placeholder="Ordonné Y" id="Y2" name="Y" type="text" class="validate Y">
-									<label for="Y">Y:</label>
+									<label for="Y2">Y:</label>
 								</div>
 							</div>
 							<div class="row">
