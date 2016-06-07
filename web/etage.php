@@ -15,7 +15,7 @@
                         <div class="col s12">
                             <div id="mapid"></div>
                         </div>
-                        <p id="test"></p>
+                        <div id="nextLevel"></div>
                 </div>
 
 </div>

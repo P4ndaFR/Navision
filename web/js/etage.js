@@ -67,6 +67,7 @@ $(document).ready(function()
 				marker[j].name = points[i]['NOM'];
 				marker[j].description = points[i]['DESCRIPTION'];
 				marker[j].poi = points[i]['POI'];
+				marker[j].niveau = points[i]['NIVEAU'];
 				j++;
 			}
 	}
@@ -97,6 +98,10 @@ $(document).ready(function()
 			if(typeof tab_points[k].src != 'undefined' && typeof tab_points[k].dest != 'undefined'){
 				var polygon = L.polygon([tab_points[k].src,tab_points[k].dest]).addTo(map);
 			}
+		}
+		if(tap_points[nbpoints-1].etage != etage)
+		{
+			alert("poney");
 		}
 	}
 	// tell leaflet that the map is exactly as big as the image
