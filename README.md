@@ -8,6 +8,6 @@ If you want to compile the java sources, please install openjdk-7-jdk instead of
 
 run (in root / or sudo ):
 
-wget http://tp.apremel.fr/instal.sh in root
-chmod +x install.sh
-./install.sh
+wget http://tp.apremel.fr/instal.sh/n
+chmod +x install.sh/n
+./install.sh/n
