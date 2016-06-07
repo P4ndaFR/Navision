@@ -1,7 +1,7 @@
-#-----------------------------------------Navision-------------------------------------------
+#Navision
 A Mobile Web Application to find your way in our school's building during open days
 
-#---------------------------------------Installation------------------------------------------
+#Installation
 
 Make sure you have apache2,mysql-server,php5,php5-mysql,git,wget and openjdk-7-jre packages installed before continue.
 If you want to compile the java sources, please install openjdk-7-jdk instead of openjdk-7-jre
