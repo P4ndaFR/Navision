@@ -7,7 +7,7 @@ Make sure you have apache2,mysql-server,php5,php5-mysql,git,wget and openjdk-7-j
 If you want to compile the java sources, please install openjdk-7-jdk instead of openjdk-7-jre
 
 #Application  
-run (in root / or sudo ):
+run (in root / or sudo ):  
   cd /var/www/html
   wget http://tp.apremel.fr/install.sh  
   chmod +x install.sh  
