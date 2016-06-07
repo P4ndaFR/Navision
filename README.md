@@ -25,9 +25,11 @@ run (in root / or sudo ):
   
   run (in root / or sudo ):  
     mysql -u root -p  
+      
   then enter the password you entered during mysql installation  
   in the following commands, yourname and yourpassword must be the same than the ones your entered in install.sh  
   inside mysql run :  
+    
     CREATE DATABASE navision;  
     CREATE USER 'yourname'@'localhost' IDENTIFIED BY 'yourpassword';  
     GRANT ALL PRIVILEGES ON navision.* TO 'yourname'@'localhost' WITH GRANT OPTION;  
