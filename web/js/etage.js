@@ -66,6 +66,7 @@ $(document).ready(function()
 				marker[j].id = points[i]['ID_PT'];
 				marker[j].name = points[i]['NOM'];
 				marker[j].description = points[i]['DESCRIPTION'];
+				marker[j].poi = points[i]['POI'];
 				j++;
 			}
 	}
@@ -105,8 +106,10 @@ $(document).ready(function()
 
     for (var i = 0; i < marker.length; i++)
     {
-    	marker[i].bindPopup(marker[i].name + '<br/><a class="waves-effect waves-light btn white-text red" href="index.php?page=poi&selectedPoint='+marker[i].id+'#'+marker[i].id+'">Détails</a>');
-    	//alert(location.innerHTML);
+    	if(marker[i].name)
+    	{
+    		marker[i].bindPopup(marker[i].name + '<br/><a class="waves-effect waves-light btn white-text red" href="index.php?page=poi&selectedPoint='+marker[i].id+'#'+marker[i].id+'">Détails</a>');
+    	}
     	if( location == "true" && marker[i].id == selectedPoint )
     		{
     		//alert("test");
@@ -122,7 +125,7 @@ $(document).ready(function()
     		//popup = points[i].bindPopup('Vous êtes ici :<br/>'+name);
     		var popup = L.popup({offset : [1,-24]})
     			.setLatLng(marker[i].getLatLng())
-    			.setContent('Vous êtes ici :<br/>'+name)
+    			.setContent('Vous êtes ici :<br/>')
     			.openOn(map);
     		//points[i].openPopup();
 		}
