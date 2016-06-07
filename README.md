@@ -1,6 +1,12 @@
 #Navision
 A Mobile Web Application to find your way in our school's building during open days
 
+#Technos
+The Web App is based on a MVC in PHP,with a MySQL database and a PDO methods. basically, we use PHP to communicate between model and controller, and AJAX with JSON to communicate between controller and javascript
+From javascript we create a interactive map using @Leaflet, and we place points of interest on route points using data received from AJAX.
+To get user's location we use @dwa012 's qr code scanner and administrter will put qr codes at key points of the building.
+
+The Administration side works almost like the Client side but implementing @davidshimjs 's qr code generator instead of the reader, which allow the app to generate on the fly the qr code we need from the data used to create a point.
 #Installation
 
 Make sure you have apache2,mysql-server,php5,php5-mysql,git,wget and openjdk-7-jre packages installed before continue.
