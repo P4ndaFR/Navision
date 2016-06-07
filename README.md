@@ -8,29 +8,30 @@ If you want to compile the java sources, please install openjdk-7-jdk instead of
 
 #Application  
 run (in root / or sudo ):  
-        
-    cd /var/www/html  
-    wget http://tp.apremel.fr/install.sh   
-    chmod +x install.sh   
+
+        cd /var/www/html  
+        wget http://tp.apremel.fr/install.sh   
+        chmod +x install.sh   
          
 Now fill the configuration in install.sh(you can use any text-editor you want,here we use nano, in root or sudo):  
-     
-    nano install.sh
+
+        nano install.sh
      
 run (in root / or sudo ):  
-     
+
     ./install.sh  
         
 #DataBase  
+
+  run (in root / or sudo ):
   
-  run (in root / or sudo ):  
-        
-    mysql -u root -p  
-      
+         
+        mysql -u root -p  
+           
   then enter the password you entered during mysql installation  
   in the following commands, yourname and yourpassword must be the same than the ones your entered in install.sh  
   inside mysql run :  
-    
+   
     CREATE DATABASE navision;  
     CREATE USER 'yourname'@'localhost' IDENTIFIED BY 'yourpassword';  
     GRANT ALL PRIVILEGES ON navision.* TO 'yourname'@'localhost' WITH GRANT OPTION;  
@@ -40,7 +41,7 @@ run (in root / or sudo ):
     
 #Java
 
-If the java jar file not working properly (things that normaly can not happen)
+If the java jar file not working properly (usually do)
 you can recompile the class file and recreate an executable jar file
 
 In the Navision Directory go in the java folder
