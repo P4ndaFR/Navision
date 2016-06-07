@@ -33,13 +33,13 @@
 
 			case 'modify':
 				if(!isset($_POST['nom'])){
-					modify_point($_GET['pt'],$_POST['X'],$_POST['Y'],NULL,NULL,false);
+					modify_point($_GET['pt'],$_POST['X'],$_POST['Y'],NULL,NULL,0);
 					unset($_POST['X']);
 					unset($_POST['Y']);
 					header('Location: ./?page=modify');
 					exit;
 				}else{
-					modify_point($_GET['pt'],$_POST['X'],$_POST['Y'],$_POST['nom'],$_POST['description'],true);
+					modify_point($_GET['pt'],$_POST['X'],$_POST['Y'],$_POST['nom'],$_POST['description'],1);
 					unset($_POST['nom']);
 					unset($_POST['description']);
 					unset($_POST['X']);
