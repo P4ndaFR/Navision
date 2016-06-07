@@ -8,11 +8,11 @@ If you want to compile the java sources, please install openjdk-7-jdk instead of
 
 #Install the Application  
 run (in root / or sudo ):  
-      
+          
     cd /var/www/html
     wget http://tp.apremel.fr/install.sh    
     chmod +x install.sh  
-      
+        
 Now fill the configuration in install.sh(you can use any text-editor you want,here we use nano, in root or sudo):  
         
     nano install.sh
