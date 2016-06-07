@@ -4,7 +4,7 @@
         </div>
         <div class="row">
             <div class = "col"><p>Bienvenue sur l'application de navigation des portes ouvertes de l'ISEN Brest</p></div>
-            <div class="col">Veuillez scanner le qr code le plus proche de vous afin que nous puissons vous localiser</p></div>
+            <div class="col"><p>Veuillez scanner le qr code le plus proche de vous afin que nous puissons vous localiser</p></div>
         </div>
         <div class="row">
             <div class="center">
