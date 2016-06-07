@@ -11,6 +11,7 @@ $(document).ready(function()
      	 	if (xhttp.readyState == 4 && xhttp.status == 200)
     		{
     			//Conversion de l'objet JSON en chaine de caractère
+				console.log(xhttp.responseText);
 				var parsed = JSON.parse(xhttp.responseText);
 				//Affichage d'un élement du tableau,ici le 10ème.
         		callback(parsed);

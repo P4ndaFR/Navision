@@ -1,0 +1,2 @@
+Main-Class: dijkstra/main/main
+Class-Path: lib/mysql-connector-java-5.1.39-bin.jar
