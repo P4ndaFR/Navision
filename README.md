@@ -19,7 +19,7 @@ Now fill the configuration in install.sh(you can use any text-editor you want,he
      
 run (in root / or sudo ):  
 
-    ./install.sh  
+        ./install.sh  
         
 #DataBase  
 
@@ -31,12 +31,12 @@ run (in root / or sudo ):
   in the following commands, yourname and yourpassword must be the same than the ones your entered in install.sh  
   inside mysql run :  
    
-    CREATE DATABASE navision;  
-    CREATE USER 'yourname'@'localhost' IDENTIFIED BY 'yourpassword';  
-    GRANT ALL PRIVILEGES ON navision.* TO 'yourname'@'localhost' WITH GRANT OPTION;  
-    use navision;  
-    source /var/www/html/Navision/bdd.sql;  
-    exit;
+        CREATE DATABASE navision;  
+        CREATE USER 'yourname'@'localhost' IDENTIFIED BY 'yourpassword';  
+        GRANT ALL PRIVILEGES ON navision.* TO 'yourname'@'localhost' WITH GRANT OPTION;  
+        use navision;  
+        source /var/www/html/Navision/bdd/Navision.sql;  
+        exit;
     
 #Java
 
