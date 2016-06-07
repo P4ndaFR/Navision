@@ -24,20 +24,20 @@ run (in root / or sudo ):
 #DataBase  
   
   run (in root / or sudo ):  
-    mysql -u root -p
-  then enter the password you entered during mysql installation
-  in the following commands, yourname and yourpassword must be the same than the ones your entered in install.sh
+    mysql -u root -p  
+  then enter the password you entered during mysql installation  
+  in the following commands, yourname and yourpassword must be the same than the ones your entered in install.sh  
   inside mysql run :  
     CREATE DATABASE navision;  
     CREATE USER 'yourname'@'localhost' IDENTIFIED BY 'yourpassword';  
-    GRANT ALL PRIVILEGES ON navision.* TO 'yourname'@'localhost' WITH GRANT OPTION;
-    use navision;
-    source /var/www/html/Navision/bdd.sql;
-    exit;  
+    GRANT ALL PRIVILEGES ON navision.* TO 'yourname'@'localhost' WITH GRANT OPTION;  
+    use navision;  
+    source /var/www/html/Navision/bdd.sql;  
+    exit; 
     
-#Utilisation
-to access client interface (will only work on mobile terminals):
-your.domain.com or yourip
+#Utilisation  
+to access client interface (will only work on mobile terminals):  
+your.domain.com or yourip  
 
-to access adminstration interface
-your.domain.com/admin or yourip/admin
+to access adminstration interface  
+your.domain.com/admin or yourip/admin  
