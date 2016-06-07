@@ -43,7 +43,7 @@
 	function modify_point($id,$X,$Y,$nom,$description,$poi){
 		global $bdd;
 		$req = $bdd->prepare('UPDATE POINT SET X = :X, Y = :Y, NOM = :nom, DESCRIPTION = :description, POI = :poi WHERE ID_PT = :id;');
-		$req->execute(array('id'=> $id, 'X'=> $X, 'Y'=>$Y, 'nom' => $nom, 'description'=> $description, 'poi' => $poi));
+		$req->execute(array('X'=> $X, 'Y'=>$Y, 'nom' => $nom, 'description'=> $description, 'poi' => $poi, 'id' => $id));
 	}
 	function remove_point($id){
 		global $bdd;
@@ -63,5 +63,8 @@
 		global $bdd;
 		$req = $bdd->prepare('INSERT INTO `Navision`.`LIAISON` (`POI_ID_PT`, `ID_PT`, `DISTANCE`) VALUES (:src, :dest, NULL);');
 		$req->execute(array('src'=> $src, 'dest'=>$dest));
+		$req = $bdd->prepare('INSERT INTO `Navision`.`LIAISON` (`POI_ID_PT`, `ID_PT`, `DISTANCE`) VALUES (:dest, :src, NULL);');
+                $req->execute(array('dest'=>$dest, 'src'=>$src));
+
 	}
 ?>
