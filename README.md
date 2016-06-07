@@ -13,7 +13,7 @@ run (in root / or sudo ):
   wget http://tp.apremel.fr/install.sh  
   chmod +x install.sh  
 
-Now put fill the configuration in install.sh(you can use any text-editor you want,here we use nano, in root or sudo):  
+Now fill the configuration in install.sh(you can use any text-editor you want,here we use nano, in root or sudo):  
 
   nano install.sh
   
