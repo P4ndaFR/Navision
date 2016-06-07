@@ -1,18 +1,18 @@
 #Navision
 A Mobile Web Application to find your way in our school's building during open days
 
-#Technos
+##Technos
 The Web App is based on a MVC in PHP,with a MySQL database and a PDO methods. basically, we use PHP to communicate between model and controller, and AJAX with JSON to communicate between controller and javascript
 From javascript we create a interactive map using @Leaflet/Leaflet , and we place points of interest on route points using data received from AJAX.
-To get user's location we use @dwa012 's qr code scanner and administrter will put qr codes at key points of the building.
+To get user's location we use @dwa012 's qr code scanner and administrater will put qr codes at key points of the building.
 
 The Administration side works almost like the Client side but implementing @davidshimjs 's qr code generator instead of the reader, which allow the app to generate on the fly the qr code we need from the data used to create a point.
-#Installation
+##Installation
 
 Make sure you have apache2,mysql-server,php5,php5-mysql,git,wget and openjdk-7-jre packages installed before continue.
 If you want to compile the java sources, please install openjdk-7-jdk instead of openjdk-7-jre
 
-#Application  
+###Application  
 run (in root / or sudo ):
 
         cd /var/www/html  
@@ -27,7 +27,7 @@ run (in root / or sudo ):
 
         ./install.sh  
         
-#DataBase  
+###DataBase  
 
   run (in root / or sudo ):
         
@@ -44,7 +44,7 @@ run (in root / or sudo ):
         source /var/www/html/Navision/bdd/Navision.sql;  
         exit;
     
-#Java
+###Java
 
 If the java jar file not working properly (usually do)
 you can recompile the class file and recreate an executable jar file
@@ -81,7 +81,7 @@ and if the main programme work
     java -cp lib/mysql-connector-java-5.1.39-bin.jar:bin/ dijkstra.main.main
 
 
-#Utilisation  
+##Utilisation  
 to access client interface (will only work on mobile terminals):  
 your.domain.com or yourip  
 
