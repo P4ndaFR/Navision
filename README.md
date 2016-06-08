@@ -86,4 +86,5 @@ to access client interface (will only work on mobile terminals):
 your.domain.com or yourip  
 
 to access adminstration interface  
-your.domain.com/admin or yourip/admin  
+your.domain.com/admin or yourip/admin
+and you MUST have allow your web server to follow simbolic link
