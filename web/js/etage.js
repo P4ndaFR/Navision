@@ -75,13 +75,15 @@ $(document).ready(function()
 					var destNiveau = points[i]['NIVEAU'];
 					var x = marker[j-1].x;
 					var y = marker[j-1].y;
+					var id =marker[j-1].id;
 					var name = marker[j-1].name;
 					map.removeLayer(marker[j-1]);
-					marker[i] = L.marker([-y,x], {
+					marker[j-1] = L.marker([-y,x], {
 					icon: L.spriteIcon('green')
 				}).addTo(map);
-					marker[i].x = x;
-					marker[i].y = y;
+					marker[j-1].x = x;
+					marker[j-1].y = y;
+					marker[j-1].id = id;
 					
 				}
 	}
