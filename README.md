@@ -25,7 +25,7 @@ nano install.sh
 ```
 run (in root / or sudo ):  
 ```bash
-./install.sh  
+./install.sh
 ```
 ###DataBase  
 
