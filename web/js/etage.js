@@ -85,16 +85,18 @@ $(document).ready(function()
 			tab_points[k] = new Object();
 			for(i = 0; i<marker.length;i++)
 			{
-				if(Number(path[k]) == Number(marker[i].id) && firstPoint == 0){
+				if((Number(path[k]) == Number(marker[i].id)) && firstPoint == 0){
 					tab_points[k].src = marker[i].getLatLng();
-				}else if(Number(path[k]) == Number(marker[i].id) && firstPoint == 1){
+				}else if((Number(path[k]) == Number(marker[i].id)) && firstPoint == 1){
 					tab_points[k].src = marker[i].getLatLng();
 					var x = marker[i].x;
 					var y = marker[i].y;
 						map.removeLayer(marker[i]);
 						marker[i] = L.marker([-y,x], {
-						icon: L.spriteIcon('red')
+						icon: L.spriteIcon('purple')
 					}).addTo(map);
+					marker[i].x = x;
+					marker[i].y = y;
 					firstPoint = 0;
 				}
 			}
@@ -109,10 +111,10 @@ $(document).ready(function()
 				var polygon = L.polygon([tab_points[k].src,tab_points[k].dest]).addTo(map);
 			}
 		}
-		if(tap_points[nbpoints-1].etage != etage)
+		/*if(tap_points[nbpoints-1].etage != etage)
 		{
 			alert("poney");
-		}
+		}*/
 	}
 	// tell leaflet that the map is exactly as big as the image
 	map.setMaxBounds(bounds);
@@ -131,6 +133,7 @@ $(document).ready(function()
     		//Ici on modifie la couleur du marqueur
     		var x = marker[i].x;
     		var y = marker[i].y;
+			var name = marker[i].name;
     		map.removeLayer(marker[i]);
     		marker[i] = L.marker([-y,x], {
   				icon: L.spriteIcon('red')
