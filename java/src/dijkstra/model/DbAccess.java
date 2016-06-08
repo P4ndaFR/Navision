@@ -7,7 +7,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Classe de gestion de la connexion à la bdd
+ * @author Arnaud & Vogella
+ * @version 1.11
+ */
 public class DbAccess {
 	private static String url;
     private static String utilisateur;
@@ -15,7 +19,12 @@ public class DbAccess {
     private static Connection connexion;
     private List<Vertex> nodes;
 	private List<Edge> edges;
-	
+	/**
+	   * Constructeur de l'accès à la base de donnée
+	   * @param url Url de connexion à la base de données (your.domain.name:port)
+	   * @param user Utilisateur de la base de données
+	   * @param passwd Mot de passe de connexion à la bdd
+	   */
     public DbAccess(String url,String user,String passwd){
     		DbAccess.url = url;
     		DbAccess.utilisateur = user;
@@ -24,7 +33,10 @@ public class DbAccess {
     		nodes = new ArrayList<Vertex>();
     	    edges = new ArrayList<Edge>();
     }
-    
+    /**
+     * Récupère les point de la base de données
+     * @return Liste des Noeuds
+     */
     public List<Vertex> get_points(){
     	Statement statement;
 		try {
@@ -41,7 +53,10 @@ public class DbAccess {
 		}
     	return nodes;
     }
-    
+    /**
+     * Récupère les liaisons de la base de données
+     * @return Liste des Noeuds
+     */
     public List<Edge> get_edges(){
     	int i =0;
     	try {
@@ -80,12 +95,21 @@ public class DbAccess {
 			}
     	return edges;
     }
-    
+    /**
+     * Ajoute la nouvelle liaisons à la liste
+     * @param laneId identifiant de la liaison
+     * @param source Noeud de départ de la liaison
+     * @param dest Noeud de destination de la liaison
+     * @param duration Poids de la liaison
+     */
     private void addLane(String laneId, Vertex source, Vertex dest, int duration) {
 	    Edge lane = new Edge(laneId, source, dest, duration);
 	    edges.add(lane);
 	}
-    
+    /**
+     * Création de l'instance de connexion à la base de données
+     * @return L'instance de connexion
+     */
     private static Connection getInstance(){
     	if(connexion == null){
 			try {

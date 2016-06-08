@@ -14,7 +14,11 @@ import dijkstra.model.DbAccess;
 import dijkstra.model.Edge;
 import dijkstra.model.Graph;
 import dijkstra.model.Vertex;
-
+/**
+ * Classe principale main
+ * @author Vogella & Arnaud
+ * @version 1.11
+ */
 public class main {
 	private static List<Vertex> nodes;
 	private static List<Edge> edges;

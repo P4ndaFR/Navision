@@ -12,17 +12,24 @@ import java.util.Set;
 import dijkstra.model.Edge;
 import dijkstra.model.Graph;
 import dijkstra.model.Vertex;
-
+/**
+ * Class du moteur djikstra
+ * @author Vogella
+ * @version 1.1
+ */
 public class DijkstraAlgorithm {
 
   @SuppressWarnings("unused")
-private final List<Vertex> nodes;
+  private final List<Vertex> nodes;
   private final List<Edge> edges;
   private Set<Vertex> settledNodes;
   private Set<Vertex> unSettledNodes;
   private Map<Vertex, Vertex> predecessors;
   private Map<Vertex, Integer> distance;
-
+  /**
+   * constructeur de l'agorithme
+   * @param graph graph créer avec les listes de Noeuds et de liaisons
+   */
   public DijkstraAlgorithm(Graph graph) {
     // create a copy of the array so that we can operate on this array
     this.nodes = new ArrayList<Vertex>(graph.getVertexes());
