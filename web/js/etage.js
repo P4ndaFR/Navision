@@ -119,7 +119,7 @@ $(document).ready(function()
 					}).addTo(map);
 					}
 					marker[i].x = x;
-					marker[i].y = y;
+					marker[i].y =  	y;
 					firstPoint = 0;
 				}
 			}
@@ -173,12 +173,7 @@ $(document).ready(function()
 		}	
 
 	}
-	//console.log(tab_points);
-	//console.log("etage actuel" + etage);
-	/*if(marker[nbpoints-1].niveau != etage)
-	{
-		alert("poney");
-	}*/
+
 	// tell leaflet that the map is exactly as big as the image
 	map.setMaxBounds(bounds);
 
