@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `ADMINISTRATEUR` (
-  `USER` varchar(1024) NOT NULL,
+  `USER` varchar(200) NOT NULL,
   `PASSWORD` varchar(1024) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
