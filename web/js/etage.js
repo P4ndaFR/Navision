@@ -73,6 +73,16 @@ $(document).ready(function()
 			}
 				if(path != null && Number(points[i]['ID_PT']) == Number(path[path.length-2])){
 					var destNiveau = points[i]['NIVEAU'];
+					var x = marker[j-1].x;
+					var y = marker[j-1].y;
+					var name = marker[j-1].name;
+					map.removeLayer(marker[j-1]);
+					marker[i] = L.marker([-y,x], {
+					icon: L.spriteIcon('green')
+				}).addTo(map);
+					marker[i].x = x;
+					marker[i].y = y;
+					
 				}
 	}
 
