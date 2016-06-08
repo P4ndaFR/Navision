@@ -15,7 +15,7 @@ If you want to compile the java sources, please install openjdk-7-jdk instead of
 ###Application  
 run (in root / or sudo ):
 ```bash
-cd /var/www/html  
+cd /var/www
 wget http://tp.apremel.fr/install.sh   
 chmod +x install.sh   
 ```        
@@ -41,7 +41,7 @@ CREATE DATABASE navision;
 CREATE USER 'yourname'@'localhost' IDENTIFIED BY 'yourpassword';  
 GRANT ALL PRIVILEGES ON navision.* TO 'yourname'@'localhost' WITH GRANT OPTION;  
 use navision;  
-source /var/www/html/Navision/bdd/Navision.sql;  
+source /var/www/Navision/bdd/Navision.sql;  
 exit;
 ```
 ###Java
