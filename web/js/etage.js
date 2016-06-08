@@ -71,6 +71,9 @@ $(document).ready(function()
 				marker[j].niveau = points[i]['NIVEAU'];
 				j++;
 			}
+				if(path != null && Number(points[i]['ID_PT']) == Number(path[path.length-2])){
+					var destNiveau = points[i]['NIVEAU'];
+				}
 	}
 
 	L.imageOverlay(url, bounds).addTo(map);
@@ -83,6 +86,7 @@ $(document).ready(function()
 		for(var k = 0; k<nbpoints; k++)
 		{
 			tab_points[k] = new Object();
+
 			for(i = 0; i<marker.length;i++)
 			{
 				if((Number(path[k]) == Number(marker[i].id)) && firstPoint == 0){
@@ -111,11 +115,30 @@ $(document).ready(function()
 				var polygon = L.polygon([tab_points[k].src,tab_points[k].dest]).addTo(map);
 			}
 		}
+<<<<<<< HEAD
 		/*if(tap_points[nbpoints-1].etage != etage)
 		{
 			alert("poney");
 		}*/
+=======
+		if(destNiveau != etage)
+		{
+			var container = document.getElementById("nextLevel");
+      		var anchor = document.createElement("a");
+
+      		anchor.innerHTML = "Aller au niveau "+destNiveau;
+      		anchor.href="./?page=etage&etage="+destNiveau+"%2C0";
+     		anchor.className="btn red white-text";
+      		container.appendChild(anchor);
+		}	
+>>>>>>> 0067e16f859ff5c310be9d3f03c7afaaa6cd9edb
 	}
+	//console.log(tab_points);
+	//console.log("etage actuel" + etage);
+	/*if(marker[nbpoints-1].niveau != etage)
+	{
+		alert("poney");
+	}*/
 	// tell leaflet that the map is exactly as big as the image
 	map.setMaxBounds(bounds);
 
