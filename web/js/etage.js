@@ -77,7 +77,7 @@ $(document).ready(function()
 
 	if( path != null)
 	{
-		
+		var firstPoint = 1;
 		var nbpoints = path.length;
 		var tab_points = [];
 		for(var k = 0; k<nbpoints; k++)
@@ -85,8 +85,17 @@ $(document).ready(function()
 			tab_points[k] = new Object();
 			for(i = 0; i<marker.length;i++)
 			{
-				if(Number(path[k]) == Number(marker[i].id)){
+				if(Number(path[k]) == Number(marker[i].id) && firstPoint == 0){
 					tab_points[k].src = marker[i].getLatLng();
+				}else if(Number(path[k]) == Number(marker[i].id) && firstPoint == 1){
+					tab_points[k].src = marker[i].getLatLng();
+					var x = marker[i].x;
+					var y = marker[i].y;
+						map.removeLayer(marker[i]);
+						marker[i] = L.marker([-y,x], {
+						icon: L.spriteIcon('red')
+					}).addTo(map);
+					firstPoint = 0;
 				}
 			}
 			for(i = 0; i<marker.length;i++)
@@ -122,7 +131,6 @@ $(document).ready(function()
     		//Ici on modifie la couleur du marqueur
     		var x = marker[i].x;
     		var y = marker[i].y;
-    		var name = marker[i].name;
     		map.removeLayer(marker[i]);
     		marker[i] = L.marker([-y,x], {
   				icon: L.spriteIcon('red')
