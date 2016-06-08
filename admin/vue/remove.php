@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title>Navision</title>
 
+	<link type="text/css" rel="stylesheet" href="css/style.css">
 	<!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->

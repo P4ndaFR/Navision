@@ -21,10 +21,14 @@
     <script type="text/javascript" src="js/materialize.min.js"></script>
 	<script>  $( document ).ready(function(){  $(".button-collapse").sideNav(); }) </script>
 	<nav>
-		<div class="nav-wrapper">
+		<div class="nav-wrapper red">
 			<a href="./" class="brand-logo center">Navision</a>
-			<a href="./logout.php" class="waves-effect waves-light btn right">logout</a>
-			<a href="./?page=etage" class="waves-effect waes-light btn left">previous</a>
+			<ul id="nav-mobile" class="left hide-on-med-and-down">
+       			<li><a href="./" class="white red-text waves-effect waves-light btn">previous</a></li>
+     		</ul>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+       			<li><a href="./logout.php" class="waves-effect waves-light btn white red-text">logout</a></li>
+     		</ul>
 		</div>
 	</nav>
 		<div class="row">
@@ -103,7 +107,7 @@
 					</div>
 					<div class="row">
 						<div class="col s2 offset-s5">
-							<button class="btn waves-effect waves-light" type="submit" name="action" value="route">Submit
+							<button class="btn red white_text waves-effect waves-light" type="submit" name="action" value="route">Submit
 								<i class="material-icons right">send</i>
 							</button>
 						</div>

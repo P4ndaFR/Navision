@@ -4,9 +4,10 @@
 	<meta charset="utf-8">
 	<title>Navision</title>
 
-	<!--Import Google Icon Font-->
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
+		<link type="text/css" rel="stylesheet" href="css/style.css">
+		<!--Import Google Icon Font-->
+    	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   		 <!--Import materialize.css-->
 		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen"/>
 		<link type="text/css" rel="stylesheet" href="css/etage.css"/>
 		<link type="text/css" rel="stylesheet" href="leaflet/leaflet.css"/>
@@ -20,10 +21,14 @@
     <script type="text/javascript" src="js/materialize.min.js"></script>
 	<script>  $( document ).ready(function(){  $(".button-collapse").sideNav(); }) </script>
 	<nav>
-		<div class="nav-wrapper">
-			<a href="./" class="waves-effect waves-light btn left">previous</a>
+		<div class="nav-wrapper red">
 			<a href="./" class="brand-logo center">Navision</a>
-			<a href="./logout.php" class="waves-effect waves-light btn right">logout</a>
+			<ul id="nav-mobile" class="left hide-on-med-and-down">
+       			<li><a href="./" class="white red-text waves-effect waves-light btn">previous</a></li>
+     		</ul>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+       			<li><a href="./logout.php" class="waves-effect waves-light btn white red-text">logout</a></li>
+     		</ul>
 		</div>
 	</nav>
 	<div class="row">
@@ -75,18 +80,18 @@
 											</div>
 							</div>
 		</div>
-		<div class="col s4">
+		<div class="col s4" id="container3">
 			<div class="row">
-				<a href="./?page=add" class="col waves-effect waves-light btn-large s12"><i class="material-icons left">location_on</i>Ajouter un Point</a>
+				<a href="./?page=add" class="col waves-effect waves-light btn-large s12 red"><i class="material-icons left">location_on</i>Ajouter un Point</a>
 			</div>
 			<div class="row">
-				<a href="./?page=modify" class="col waves-effect waves-light btn-large s12"><i class="material-icons left">mode_edit</i>Modifier un Point</a>
+				<a href="./?page=modify" class="col waves-effect waves-light btn-large s12 red"><i class="material-icons left">mode_edit</i>Modifier un Point</a>
 			</div>
 			<div class="row">
-				<a href="./?page=remove" class="col waves-effect waves-light btn-large s12"><i class="material-icons left">location_off</i>Supprimer un Point</a>
+				<a href="./?page=remove" class="col waves-effect waves-light btn-large s12 red"><i class="material-icons left">location_off</i>Supprimer un Point</a>
 			</div>
 			<div class="row">
-				<a href="./?page=route" class="col waves-effect waves-light btn-large s12">Routage</a>
+				<a href="./?page=route" class="col waves-effect waves-light btn-large s12 red">Routage</a>
 			</div>
 			<div id="qrcode"><p>Sélectionner un point pour avoir le qrcode a imprimer</p></div>
 		</div>

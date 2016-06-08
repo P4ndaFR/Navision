@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title>Navision</title>
 
+	<link type="text/css" rel="stylesheet" href="css/style.css">
 	<!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
@@ -33,10 +34,14 @@
 	  }
 	</script>
 	<nav>
-		<div class="nav-wrapper">
+		<div class="nav-wrapper red">
 			<a href="./" class="brand-logo center">Navision</a>
-			<a href="./logout.php" class="waves-effect waves-light btn right">logout</a>
-			<a href="./?page=etage" class="waves-effect waes-light btn left">previous</a>
+			<ul id="nav-mobile" class="left hide-on-med-and-down">
+       			<li><a href="./" class="white red-text waves-effect waves-light btn">previous</a></li>
+     		</ul>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+       			<li><a href="./logout.php" class="waves-effect waves-light btn white red-text">logout</a></li>
+     		</ul>
 		</div>
 	</nav>
 		<div class="row">
@@ -78,11 +83,11 @@
 				<form name="form">
 					<div class="row">
 						<p class="col s6">
-						      <input class="with-gap" name="btnr" type="radio" id="choix1" onclick="showRadio()"/>
+						      <input class="with-gap red" name="btnr" type="radio" id="choix1" onclick="showRadio()"/>
 						      <label for="choix1">Point d'intérêt</label>
 						</p>
 						<p class="col s6">
-					 		<input class="with-gap" name="btnr" type="radio" id="choix2" onclick="showRadio()"/>
+					 		<input class="with-gap red" name="btnr" type="radio" id="choix2" onclick="showRadio()"/>
 							<label for="choix2">Point de routage</label>
 						</p>
 					</div>
@@ -112,7 +117,7 @@
 							</div>
 							<div class="row">
 								<div class="col offset-s4">
-									<button class="btn waves-effect waves-light" type="submit" name="action" value="add">Submit
+									<button class="btn waves-effect waves-light red" type="submit" name="action" value="add">Créer
 										<i class="material-icons right">send</i>
 									</button>
 								</div>
@@ -135,7 +140,7 @@
 							</div>
 							<div class="row">
 								<div class="col offset-s4">
-									<button class="btn waves-effect waves-light" type="submit" name="action" value="add">Submit
+									<button class="btn waves-effect waves-light red" type="submit" name="action" value="add">Créer
 										<i class="material-icons right">send</i>
 									</button>
 								</div>
