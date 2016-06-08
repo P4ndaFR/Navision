@@ -71,21 +71,21 @@ $(document).ready(function()
 				marker[j].niveau = points[i]['NIVEAU'];
 				j++;
 			}
-				if(path != null && Number(points[i]['ID_PT']) == Number(path[path.length-2])){
-					var destNiveau = points[i]['NIVEAU'];
-					var x = marker[j-1].x;
-					var y = marker[j-1].y;
-					var id =marker[j-1].id;
-					var name = marker[j-1].name;
-					map.removeLayer(marker[j-1]);
-					marker[j-1] = L.marker([-y,x], {
+			if(path != null && Number(points[i]['ID_PT']) == Number(path[path.length-2])){
+				var destNiveau = points[i]['NIVEAU'];
+				var x = marker[j-1].x;
+				var y = marker[j-1].y;
+				var id =marker[j-1].id;
+				var name = marker[j-1].name;
+				map.removeLayer(marker[j-1]);
+				marker[j-1] = L.marker([-y,x], {
 					icon: L.spriteIcon('green')
 				}).addTo(map);
-					marker[j-1].x = x;
-					marker[j-1].y = y;
-					marker[j-1].id = id;
+				marker[j-1].x = x;
+				marker[j-1].y = y;
+				marker[j-1].id = id;
 					
-				}
+			}
 	}
 
 	L.imageOverlay(url, bounds).addTo(map);
@@ -103,14 +103,21 @@ $(document).ready(function()
 			{
 				if((Number(path[k]) == Number(marker[i].id)) && firstPoint == 0){
 					tab_points[k].src = marker[i].getLatLng();
-				}else if((Number(path[k]) == Number(marker[i].id)) && firstPoint == 1){
+					tab_points[k].marker_src_id = i;
+			}else if((Number(path[k]) == Number(marker[i].id)) && (firstPoint == 1)){
 					tab_points[k].src = marker[i].getLatLng();
 					var x = marker[i].x;
 					var y = marker[i].y;
-						map.removeLayer(marker[i]);
+					map.removeLayer(marker[i]);
+					if(Number(marker[i].id) == Number(path[0])){
+					marker[i] = L.marker([-y,x], {
+						icon: L.spriteIcon('red')
+					}).addTo(map);
+					}else{
 						marker[i] = L.marker([-y,x], {
 						icon: L.spriteIcon('purple')
 					}).addTo(map);
+					}
 					marker[i].x = x;
 					marker[i].y = y;
 					firstPoint = 0;
@@ -121,7 +128,33 @@ $(document).ready(function()
 				//alert(Number(path[k+1].cells[0].innerHTML) == Number(points[i].id));
 				if(path[k+1] != 'undefined' && (Number(path[k+1]) == Number(marker[i].id))){
 					tab_points[k].dest = marker[i].getLatLng();
+
 				}
+				/*if(typeof tab_points[k].src != 'undefined' && typeof tab_points[k].dest == 'undefined'){
+					var x = marker[i].x;
+					var y = marker[i].y;
+					map.removeLayer(marker[i]);
+					marker[i] = L.marker([-y,x], {
+						icon: L.spriteIcon('purple')
+					}).addTo(map);
+					marker[i].x = x;
+					marker[i].y = y;
+				}*/
+			}
+			console.log(typeof tab_points[k].src);
+			console.log(typeof tab_points[k].dest);
+			console.log(k);
+			if((typeof tab_points[k].src == 'object') && (typeof tab_points[k].dest == 'undefined') && (k != nbpoints-2)){
+				var id = tab_points[k].marker_src_id;
+				console.log(id);
+				var x = marker[id].x;
+				var y = marker[id].y;
+				map.removeLayer(marker[id]);
+				marker[id] = L.marker([-y,x], {
+					icon: L.spriteIcon('purple')
+				}).addTo(map);	
+				marker[id].x = x;
+				marker[id].y = y;
 			}
 			if(typeof tab_points[k].src != 'undefined' && typeof tab_points[k].dest != 'undefined'){
 				var polygon = L.polygon([tab_points[k].src,tab_points[k].dest]).addTo(map);
