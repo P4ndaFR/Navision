@@ -15,7 +15,9 @@
                         <div class="col s12">
                             <div id="mapid"></div>
                         </div>
-                        <div id="nextLevel"></div>
+                        <div class="row">
+                            <div class="col s10 offset-s2" id="nextLevel"></div>
+                        </div>
                 </div>
 
 </div>

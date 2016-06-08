@@ -71,7 +71,7 @@ $(document).ready(function()
 				marker[j].niveau = points[i]['NIVEAU'];
 				j++;
 			}
-				if(Number(points[i]['ID_PT']) == Number(path[path.length-2])){
+				if(path != null && Number(points[i]['ID_PT']) == Number(path[path.length-2])){
 					var destNiveau = points[i]['NIVEAU'];
 				}
 	}
@@ -106,7 +106,13 @@ $(document).ready(function()
 		}
 		if(destNiveau != etage)
 		{
-			alert("poney");
+			var container = document.getElementById("nextLevel");
+      		var anchor = document.createElement("a");
+
+      		anchor.innerHTML = "Aller au niveau "+destNiveau;
+      		anchor.href="./?page=etage&etage="+destNiveau+"%2C0";
+     		anchor.className="btn red white-text";
+      		container.appendChild(anchor);
 		}	
 	}
 	//console.log(tab_points);
