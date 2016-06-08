@@ -36,7 +36,7 @@ $(document).ready(function()
 	for(var i = 0 ; i < rowsNb; i++)
 	{
 			if(arrayRows[i].cells[5].innerHTML == bat && arrayRows[i].cells[6].innerHTML == etage){
-				tab_points[j] = L.marker([-arrayRows[i].cells[1].innerHTML,arrayRows[i].cells[0].innerHTML],{title:arrayRows[i].cells[2].innerHTML,draggable:true}).addTo(map);
+				tab_points[j] = L.marker([-arrayRows[i].cells[1].innerHTML,arrayRows[i].cells[0].innerHTML],{title:arrayRows[i].cells[2].innerHTML}).addTo(map);
 				tab_points[j].id = arrayRows[i].cells[2].innerHTML;
 				tab_points[j].name = arrayRows[i].cells[3].innerHTML;
 				tab_points[j].description = arrayRows[i].cells[4].innerHTML;
