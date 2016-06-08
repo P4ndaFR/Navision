@@ -115,12 +115,7 @@ $(document).ready(function()
 				var polygon = L.polygon([tab_points[k].src,tab_points[k].dest]).addTo(map);
 			}
 		}
-<<<<<<< HEAD
-		/*if(tap_points[nbpoints-1].etage != etage)
-		{
-			alert("poney");
-		}*/
-=======
+
 		if(destNiveau != etage)
 		{
 			var container = document.getElementById("nextLevel");
@@ -131,7 +126,7 @@ $(document).ready(function()
      		anchor.className="btn red white-text";
       		container.appendChild(anchor);
 		}	
->>>>>>> 0067e16f859ff5c310be9d3f03c7afaaa6cd9edb
+
 	}
 	//console.log(tab_points);
 	//console.log("etage actuel" + etage);
