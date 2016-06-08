@@ -37,10 +37,10 @@ mysql -u root -p
   in the following commands, yourname and yourpassword must be the same than the ones your entered in install.sh  
   inside mysql run :  
 ```SQL
-CREATE DATABASE navision;  
+CREATE DATABASE Navision;  
 CREATE USER 'yourname'@'localhost' IDENTIFIED BY 'yourpassword';  
-GRANT ALL PRIVILEGES ON navision.* TO 'yourname'@'localhost' WITH GRANT OPTION;  
-use navision;  
+GRANT ALL PRIVILEGES ON Navision.* TO 'yourname'@'localhost' WITH GRANT OPTION;  
+use Navision;  
 source /var/www/Navision/bdd/Navision.sql;  
 exit;
 ```
